@@ -17,45 +17,41 @@ de scénario ou de benchmark n’est redéfinie dans le code.
 
 ## Graphiques finaux
 
-| Fichier | Usage | Source de données | README | Brief recruteur | Rapport technique |
-|---|---|---|:---:|:---:|:---:|
-| `unemployment.png` | Trajectoire du chômage et divergence des scénarios | `data/final/final_three_target_forecasts.csv` | Oui | Oui | Oui |
-| `real_gdp_per_capita.png` | Trajectoire du PIB réel par habitant | `data/final/final_three_target_forecasts.csv` | Oui | Oui | Oui |
-| `real_median_living.png` | Trajectoire du niveau de vie médian réel | `data/final/final_three_target_forecasts.csv` | Oui | Oui | Oui |
-| `institutional_unemployment.png` | Comparaison FranceScope / références institutionnelles | `data/final/final_three_target_forecasts.csv`, `data/institutional/institutional_near_term_consensus.csv`, `data/institutional/institutional_long_run_reference.csv` | Oui | Oui | Oui |
-| `institutional_real_gdp_per_capita.png` | Scénarios FranceScope sans faux niveau institutionnel | `data/final/final_three_target_forecasts.csv`, `data/institutional/institutional_long_run_reference.csv` | Non | Oui | Oui |
-| `institutional_real_median_living_standard.png` | Scénarios FranceScope et absence de benchmark officiel comparable | `data/final/final_three_target_forecasts.csv`, `data/institutional/institutional_long_run_reference.csv` | Non | Oui | Oui |
-| `final_scenario_comparison.png` | Tableau de lecture rapide des résultats 2050 | `data/final/final_three_target_forecasts.csv` | Non | Oui | Oui |
+| Fichier | Usage | Source de données | README | Documentation principale |
+|---|---|---|:---:|:---:|
+| `unemployment.png` | Trajectoire du chômage et divergence des scénarios | `data/final/final_three_target_forecasts.csv` | Non | Référence |
+| `real_gdp_per_capita.png` | Trajectoire du PIB réel par habitant | `data/final/final_three_target_forecasts.csv` | Non | Référence |
+| `real_median_living.png` | Trajectoire du niveau de vie médian réel | `data/final/final_three_target_forecasts.csv` | Non | Référence |
+| `institutional_unemployment.png` | Comparaison FranceScope / références institutionnelles | `data/final/final_three_target_forecasts.csv`, `data/institutional/institutional_near_term_consensus.csv`, `data/institutional/institutional_long_run_reference.csv` | Non | Référence |
+| `institutional_real_gdp_per_capita.png` | Scénarios FranceScope sans faux niveau institutionnel | `data/final/final_three_target_forecasts.csv`, `data/institutional/institutional_long_run_reference.csv` | Non | Référence |
+| `institutional_real_median_living_standard.png` | Scénarios FranceScope et absence de benchmark officiel comparable | `data/final/final_three_target_forecasts.csv`, `data/institutional/institutional_long_run_reference.csv` | Non | Référence |
+| `final_scenario_comparison.png` | Tableau de lecture rapide des résultats 2050 | `data/final/final_three_target_forecasts.csv` | Oui | Oui |
+| `unemployment_2010_2050.png` | Historique disponible, scénarios et repères institutionnels du chômage | `data/final/final_historical_targets.csv`, `data/final/final_three_target_forecasts.csv`, `data/institutional/institutional_near_term_consensus.csv`, `data/institutional/institutional_long_run_reference.csv` | Non | Oui |
+| `gdp_per_capita_2010_2050.png` | Historique disponible et scénarios du PIB réel par habitant | `data/final/final_historical_targets.csv`, `data/final/final_three_target_forecasts.csv` | Non | Oui |
+| `median_living_2010_2050.png` | Historique disponible et scénarios du niveau de vie médian réel | `data/final/final_historical_targets.csv`, `data/final/final_three_target_forecasts.csv` | Non | Oui |
+| `pessimistic_scenario_annotated.png` | Moteurs narratifs du scénario de forte détérioration | `data/final/final_three_target_forecasts.csv` | Non | Oui |
+| `central_scenario_annotated.png` | Moteurs narratifs du scénario central | `data/final/final_three_target_forecasts.csv` | Non | Oui |
 
 ## Sélections par support
 
 ### README
 
-Les quatre graphiques conservés sont `unemployment.png`,
-`real_gdp_per_capita.png`, `real_median_living.png` et
-`institutional_unemployment.png`. Ils montrent respectivement les trois cibles
-et la comparaison institutionnelle la plus défendable.
+Le README conserve uniquement `final_scenario_comparison.png` afin de rester
+lisible et recruteur-friendly.
 
-### Brief recruteur
+### Documentation principale
 
-La sélection recommandée est `final_scenario_comparison.png`,
-`unemployment.png`, `institutional_unemployment.png`,
-`real_gdp_per_capita.png` et `real_median_living.png`. Elle privilégie une
-lecture rapide des résultats, sans recréer un indice composite.
-
-### Rapport technique
-
-Le rapport peut inclure les trois trajectoires, la comparaison institutionnelle
-du chômage, les deux graphiques institutionnels avec leurs réserves et le
-dashboard 2050. Les graphiques institutionnels GDPpc et niveau de vie ne sont
-pas sélectionnés dans le README afin d’éviter de surcharger la page d’accueil.
+La documentation principale utilise `unemployment_2010_2050.png`,
+`gdp_per_capita_2010_2050.png`, `median_living_2010_2050.png`,
+`pessimistic_scenario_annotated.png`, `central_scenario_annotated.png` et
+`institutional_unemployment.png`. Les séries institutionnelles absentes ne
+sont pas fabriquées.
 
 ## Décisions et limites
 
-- Aucun graphique historique supplémentaire n’a été créé : le fichier
-  `final_historical_targets.csv` ne fournit pas une série annuelle complète
-  homogène pour les trois cibles ; relier artificiellement les points
-  disponibles donnerait une continuité trompeuse.
+- L’historique public de `final_historical_targets.csv` est affiché sous forme
+  de points disponibles ; aucune continuité annuelle artificielle n’est
+  dessinée entre deux observations espacées.
 - Pas de niveau institutionnel GDPpc long terme directement comparable n’est dessiné jusqu’en 2050. Les jalons CE
   de croissance `0,4 %`, `1,4 %`, `1,4 %` sont rappelés comme information
   séparée, sans conversion implicite en euros.

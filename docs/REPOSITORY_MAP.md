@@ -1,6 +1,6 @@
 # Repository map
 
-- `README.md` is the recruiter-facing entry point and is intentionally not rewritten in this cleanup.
+- `README.md` is the concise recruiter-facing entry point; `docs/main_documentation.md` is the primary project document.
 - `src/` contains application and reusable source code.
 - `scripts/` contains reproducible data preparation, forecast, validation, and reporting scripts.
 - `data/` contains source data and the clean public layers under `final/` and `institutional/`; historical and raw inputs remain separated.

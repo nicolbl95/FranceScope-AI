@@ -59,6 +59,15 @@ def load_forecasts(variable: str) -> pd.DataFrame:
     return data[data["variable"].eq(variable)].copy()
 
 
+def load_historical(variable: str) -> pd.DataFrame:
+    data = pd.read_csv(FINAL / "final_historical_targets.csv")
+    return data[
+        data["target_variable"].eq(variable)
+        & data["value"].notna()
+        & data["value"].ne("N/A")
+    ].copy()
+
+
 def baseline(data: pd.DataFrame) -> float:
     return float(data.loc[data["scenario"].eq("2025_ACTUAL"), "point_forecast"].iloc[0])
 
@@ -246,6 +255,172 @@ def institutional_median() -> None:
     )
 
 
+def long_run_chart(
+    variable: str,
+    filename: str,
+    title: str,
+    ylabel: str,
+    formatter: FuncFormatter,
+    note: str,
+    y_locator: MultipleLocator | None = None,
+    show_institutional: bool = False,
+) -> None:
+    forecasts = load_forecasts(variable)
+    historical = load_historical(variable)
+    actual = baseline(forecasts)
+    fig, ax = plt.subplots(figsize=(11.5, 6.6))
+
+    ax.scatter(
+        historical["year"].astype(int),
+        historical["value"].astype(float),
+        color="#263238",
+        marker="o",
+        s=46,
+        zorder=6,
+        label="Observations historiques",
+    )
+
+    for scenario in SCENARIO_ORDER:
+        rows = forecasts[forecasts["scenario"].eq(scenario)].sort_values("year")
+        ax.plot(
+            [2025] + rows["year"].astype(int).tolist(),
+            [actual] + rows["point_forecast"].astype(float).tolist(),
+            color=COLORS[scenario],
+            linewidth=2.5,
+            marker="o",
+            markersize=4.8,
+            label=f"FranceScope — {LABELS[scenario].lower()}",
+        )
+
+    if show_institutional:
+        long_run = pd.read_csv(INSTITUTIONAL / "institutional_long_run_reference.csv")
+        consensus = pd.read_csv(INSTITUTIONAL / "institutional_near_term_consensus.csv")
+        near = consensus[consensus["target_variable"].eq("unemployment_rate")]
+        ax.plot(
+            near["year"],
+            near["median"],
+            color="#264653",
+            marker="D",
+            linewidth=2,
+            markersize=5,
+            label="Consensus institutionnel court terme",
+        )
+        direct = long_run[
+            long_run["target_variable"].eq("unemployment_rate")
+            & long_run["classification"].eq("DIRECT_FORECAST")
+        ]
+        ax.plot(
+            direct["year"].astype(int),
+            direct["value"].astype(float),
+            color="#457B9D",
+            marker="s",
+            linestyle=":",
+            linewidth=2,
+            markersize=5,
+            label="Banque de France — prévision directe",
+        )
+        ec = long_run[
+            long_run["target_variable"].eq("unemployment_rate")
+            & long_run["classification"].eq("LONG_RUN_PROJECTION")
+        ]
+        ax.plot(
+            ec["year"].astype(int),
+            ec["value"].astype(float),
+            color="#6C757D",
+            marker="^",
+            linestyle="--",
+            linewidth=2,
+            markersize=5,
+            label="Référence CE long terme",
+        )
+
+    ax.axvline(2025, color="#59636E", linewidth=1.1, linestyle="--", alpha=0.75)
+    ax.set_title(title, loc="left", fontsize=16, pad=18)
+    ax.text(
+        0,
+        1.02,
+        "Points noirs = observations disponibles · lignes colorées = scénarios conditionnels",
+        transform=ax.transAxes,
+        fontsize=9.5,
+        color="#59636E",
+    )
+    ax.set_xlabel("Année")
+    ax.set_ylabel(ylabel)
+    ax.set_xlim(2009, 2051)
+    ax.set_xticks([2010, 2015, 2020, 2025, 2030, 2040, 2050])
+    ax.tick_params(axis="x", labelrotation=25)
+    ax.yaxis.set_major_formatter(formatter)
+    if y_locator:
+        ax.yaxis.set_major_locator(y_locator)
+    ax.legend(loc="upper left", frameon=False, fontsize=8.5, ncol=2)
+    ax.text(0, -0.19, note, transform=ax.transAxes, fontsize=9, color="#59636E")
+    save(fig, filename)
+
+
+def annotated_scenario_chart(
+    scenario: str,
+    filename: str,
+    title: str,
+    annotations: list[tuple[int, str, tuple[int, int]]],
+) -> None:
+    forecasts = load_forecasts("unemployment_rate")
+    actual = baseline(forecasts)
+    rows = forecasts[forecasts["scenario"].eq(scenario)].sort_values("year")
+    x = [2025] + rows["year"].astype(int).tolist()
+    y = [actual] + rows["point_forecast"].astype(float).tolist()
+
+    fig, ax = plt.subplots(figsize=(11.5, 6.6))
+    ax.plot(
+        x,
+        y,
+        color=COLORS[scenario],
+        linewidth=3,
+        marker="o",
+        markersize=6,
+        label=f"FranceScope — {LABELS[scenario].lower()}",
+    )
+    ax.scatter([2025], [actual], color="#263238", s=58, zorder=5, label="Observation 2025")
+    values = dict(zip(x, y))
+    for year, label, text_position in annotations:
+        ax.annotate(
+            label,
+            xy=(year, values[year]),
+            xytext=text_position,
+            textcoords="data",
+            arrowprops={"arrowstyle": "->", "color": "#59636E", "lw": 1.2},
+            bbox={"boxstyle": "round,pad=0.35", "facecolor": "#F4F7F9", "edgecolor": "#B8C4CE"},
+            fontsize=9,
+            color="#263238",
+        )
+
+    ax.axvline(2025, color="#59636E", linewidth=1.1, linestyle="--", alpha=0.75)
+    ax.set_title(title, loc="left", fontsize=16, pad=18)
+    ax.text(
+        0,
+        1.02,
+        "Annotations = moteurs narratifs du scénario, pas observations futures",
+        transform=ax.transAxes,
+        fontsize=9.5,
+        color="#59636E",
+    )
+    ax.set_xlabel("Année")
+    ax.set_ylabel("Taux de chômage (%)")
+    ax.set_xlim(2024, 2052)
+    ax.set_xticks([2025, 2030, 2040, 2050])
+    ax.yaxis.set_major_formatter(FuncFormatter(lambda value, _: f"{value:.0f} %"))
+    ax.yaxis.set_major_locator(MultipleLocator(2))
+    ax.legend(loc="upper left", frameon=False)
+    ax.text(
+        0,
+        -0.19,
+        "Les annotations expliquent les canaux de détérioration retenus ; elles ne créent pas de nouvelles données.",
+        transform=ax.transAxes,
+        fontsize=9,
+        color="#59636E",
+    )
+    save(fig, filename)
+
+
 def dashboard() -> None:
     data = pd.read_csv(FINAL / "final_three_target_forecasts.csv")
     actuals = {
@@ -321,6 +496,54 @@ def main() -> None:
     institutional_unemployment()
     institutional_gdp()
     institutional_median()
+    long_run_chart(
+        "unemployment_rate",
+        "unemployment_2010_2050.png",
+        "Chômage — historique, scénarios et repères institutionnels (2010–2050)",
+        "Taux de chômage (%)",
+        FuncFormatter(lambda value, _: f"{value:.0f} %"),
+        "Les références institutionnelles sont affichées uniquement aux années et selon les statuts disponibles.",
+        MultipleLocator(2),
+        show_institutional=True,
+    )
+    long_run_chart(
+        "real_gdp_per_capita",
+        "gdp_per_capita_2010_2050.png",
+        "PIB réel par habitant — historique et scénarios (2010–2050)",
+        "€ constants par personne",
+        FuncFormatter(lambda value, _: integer(value) + " €"),
+        "Aucun niveau institutionnel de long terme comparable : les jalons de croissance ne sont pas convertis en euros.",
+        MultipleLocator(2_000),
+    )
+    long_run_chart(
+        "real_median_living_standard",
+        "median_living_2010_2050.png",
+        "Niveau de vie médian réel — historique et scénarios (2010–2050)",
+        "€ constants par personne et par an",
+        FuncFormatter(lambda value, _: integer(value) + " €"),
+        "Aucune prévision institutionnelle de long terme comparable n’est disponible.",
+        MultipleLocator(1_000),
+    )
+    annotated_scenario_chart(
+        "PESSIMISTIC",
+        "pessimistic_scenario_annotated.png",
+        "Scénario de forte détérioration — moteurs narratifs",
+        [
+            (2030, "Crise financière\n+ coût du crédit", (2031, 14.8)),
+            (2040, "Sous-investissement\n+ productivité stagnante", (2034, 18.0)),
+            (2050, "Chocs répétés\n+ scarring cumulé", (2042, 12.6)),
+        ],
+    )
+    annotated_scenario_chart(
+        "CENTRAL",
+        "central_scenario_annotated.png",
+        "Scénario central — moteurs narratifs",
+        [
+            (2030, "Pression budgétaire\npersistante", (2031, 10.8)),
+            (2040, "Vieillissement\n+ investissement faible", (2034, 14.4)),
+            (2050, "Hystérèse\n+ reprise incomplète", (2042, 11.0)),
+        ],
+    )
     dashboard()
 
 
