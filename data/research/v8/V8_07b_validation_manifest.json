@@ -1,0 +1,15 @@
+{
+  "version": "V8.07b",
+  "revision_rounds": 1,
+  "values_changed": [
+    "OPTIMISTIC real_gdp_per_capita 2040: 39500.0 -> 39000.0",
+    "OPTIMISTIC real_median_living_standard 2040: 26200.0 -> 25800.0"
+  ],
+  "unemployment_unchanged": true,
+  "2050_endpoints_unchanged": true,
+  "ranges_changed": false,
+  "all_points_inside_ranges": true,
+  "scenario_ordering_preserved": true,
+  "index_calculated": false,
+  "v7_modified": false
+}

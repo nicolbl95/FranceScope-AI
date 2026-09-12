@@ -1,0 +1,13 @@
+{
+  "version": "V8.07",
+  "unemployment_ranges_revised": true,
+  "unemployment_points_exact": true,
+  "gdp_per_capita_unchanged": true,
+  "median_living_revision": "OPTIMISTIC_2050 25200.0 -> 24700.0",
+  "central_and_pessimistic_median_unchanged": true,
+  "scenario_ordering_preserved": true,
+  "all_points_inside_ranges": true,
+  "baseline_2025_unchanged": true,
+  "index_calculated": false,
+  "v7_modified": false
+}

@@ -1,0 +1,49 @@
+risk,scenario,event_logic
+material sovereign stress,OPTIMISTIC,"late, mild or contained; high-probability events remain possible"
+material sovereign stress,CENTRAL,most probable timing and moderate severity with partial recovery
+material sovereign stress,PESSIMISTIC,"early, severe, persistent or compounded realization"
+severe funding/refinancing crisis,OPTIMISTIC,"late, mild or contained; high-probability events remain possible"
+severe funding/refinancing crisis,CENTRAL,most probable timing and moderate severity with partial recovery
+severe funding/refinancing crisis,PESSIMISTIC,"early, severe, persistent or compounded realization"
+formal default/restructuring,OPTIMISTIC,"late, mild or contained; high-probability events remain possible"
+formal default/restructuring,CENTRAL,most probable timing and moderate severity with partial recovery
+formal default/restructuring,PESSIMISTIC,"early, severe, persistent or compounded realization"
+banking/financial crisis,OPTIMISTIC,"late, mild or contained; high-probability events remain possible"
+banking/financial crisis,CENTRAL,most probable timing and moderate severity with partial recovery
+banking/financial crisis,PESSIMISTIC,"early, severe, persistent or compounded realization"
+euro-area sovereign crisis,OPTIMISTIC,"late, mild or contained; high-probability events remain possible"
+euro-area sovereign crisis,CENTRAL,most probable timing and moderate severity with partial recovery
+euro-area sovereign crisis,PESSIMISTIC,"early, severe, persistent or compounded realization"
+global recession,OPTIMISTIC,"late, mild or contained; high-probability events remain possible"
+global recession,CENTRAL,most probable timing and moderate severity with partial recovery
+global recession,PESSIMISTIC,"early, severe, persistent or compounded realization"
+asset-price crash,OPTIMISTIC,"late, mild or contained; high-probability events remain possible"
+asset-price crash,CENTRAL,most probable timing and moderate severity with partial recovery
+asset-price crash,PESSIMISTIC,"early, severe, persistent or compounded realization"
+credit crisis,OPTIMISTIC,"late, mild or contained; high-probability events remain possible"
+credit crisis,CENTRAL,most probable timing and moderate severity with partial recovery
+credit crisis,PESSIMISTIC,"early, severe, persistent or compounded realization"
+energy shock,OPTIMISTIC,"late, mild or contained; high-probability events remain possible"
+energy shock,CENTRAL,most probable timing and moderate severity with partial recovery
+energy shock,PESSIMISTIC,"early, severe, persistent or compounded realization"
+oil/gas shock,OPTIMISTIC,"late, mild or contained; high-probability events remain possible"
+oil/gas shock,CENTRAL,most probable timing and moderate severity with partial recovery
+oil/gas shock,PESSIMISTIC,"early, severe, persistent or compounded realization"
+major geopolitical conflict,OPTIMISTIC,"late, mild or contained; high-probability events remain possible"
+major geopolitical conflict,CENTRAL,most probable timing and moderate severity with partial recovery
+major geopolitical conflict,PESSIMISTIC,"early, severe, persistent or compounded realization"
+trade fragmentation shock,OPTIMISTIC,"late, mild or contained; high-probability events remain possible"
+trade fragmentation shock,CENTRAL,most probable timing and moderate severity with partial recovery
+trade fragmentation shock,PESSIMISTIC,"early, severe, persistent or compounded realization"
+major climate/food-price shock,OPTIMISTIC,"late, mild or contained; high-probability events remain possible"
+major climate/food-price shock,CENTRAL,most probable timing and moderate severity with partial recovery
+major climate/food-price shock,PESSIMISTIC,"early, severe, persistent or compounded realization"
+domestic political crisis,OPTIMISTIC,"late, mild or contained; high-probability events remain possible"
+domestic political crisis,CENTRAL,most probable timing and moderate severity with partial recovery
+domestic political crisis,PESSIMISTIC,"early, severe, persistent or compounded realization"
+housing/real-estate shock,OPTIMISTIC,"late, mild or contained; high-probability events remain possible"
+housing/real-estate shock,CENTRAL,most probable timing and moderate severity with partial recovery
+housing/real-estate shock,PESSIMISTIC,"early, severe, persistent or compounded realization"
+combinations of the above,OPTIMISTIC,"late, mild or contained; high-probability events remain possible"
+combinations of the above,CENTRAL,most probable timing and moderate severity with partial recovery
+combinations of the above,PESSIMISTIC,"early, severe, persistent or compounded realization"

@@ -1,0 +1,4 @@
+scenario,internal_code,definition
+Low deterioration / least-bad,OPTIMISTIC,"Structural deterioration remains but shocks are later/milder, recovery is stronger, scarring is lower, and positive offsets are stronger."
+Central deterioration,CENTRAL,"Persistent structural weakness with plausible material crises, partial recovery, and medium scarring."
+High deterioration,PESSIMISTIC,"Earlier/severe compound shocks, weak recovery, high hysteresis and scarring, with positive offsets insufficient."

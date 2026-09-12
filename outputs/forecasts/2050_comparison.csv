@@ -1,0 +1,10 @@
+scenario,variable,2025,2050,absolute_change,percent_change,percentage_point_change
+Low deterioration / least-bad,unemployment_rate,7.725,12.0,4.275,,4.275
+Low deterioration / least-bad,real_gdp_per_capita,38360.0,36500.0,-1860.0,-4.848800834202294,
+Low deterioration / least-bad,real_median_living_standard,25952.514017,24700.0,-1252.5140170000013,-4.826176054387455,
+Central deterioration,unemployment_rate,7.725,14.0,6.275,,6.275
+Central deterioration,real_gdp_per_capita,38360.0,34000.0,-4360.0,-11.366006256517203,
+Central deterioration,real_median_living_standard,25952.514017,23300.0,-2652.5140170000013,-10.220643808389784,
+High deterioration,unemployment_rate,7.725,17.8,10.075000000000001,,10.075000000000001
+High deterioration,real_gdp_per_capita,38360.0,30000.0,-8360.0,-21.79353493222106,
+High deterioration,real_median_living_standard,25952.514017,20800.0,-5152.514017000001,-19.853621940536804,

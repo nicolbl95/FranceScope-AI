@@ -1,0 +1,10 @@
+scenario,year,candidate_unemployment,classification,justification
+OPTIMISTIC,2030,9.0,DEFENSIBLE_BUT_STRONG_ASSUMPTION,Above the 2026 Q2 anchor but compatible with gradual structural deterioration and contained events.
+OPTIMISTIC,2040,10.5,DEFENSIBLE_BUT_STRONG_ASSUMPTION,"Persistent hysteresis is possible, but this requires weaker reform/offset performance than the prior optimistic architecture."
+OPTIMISTIC,2050,12.0,DEFENSIBLE_BUT_STRONG_ASSUMPTION,"Historically intelligible as a structural regime, but conflicts with the least-bad low-scarring interpretation and is not inside the approved range."
+CENTRAL,2030,9.7,DEFENSIBLE_BUT_STRONG_ASSUMPTION,Material early deterioration is consistent with the central crisis timing.
+CENTRAL,2040,12.0,DEFENSIBLE_BUT_STRONG_ASSUMPTION,Persistent unemployment can follow repeated shocks and medium hysteresis.
+CENTRAL,2050,14.0,DEFENSIBLE_BUT_STRONG_ASSUMPTION,Plausible only with sustained structural mismatch and repeated scarring; stronger than current frozen central path.
+PESSIMISTIC,2030,11.3,DEFENSIBLE_BUT_STRONG_ASSUMPTION,Substantial early damage is compatible with the pessimistic compound-shock architecture.
+PESSIMISTIC,2040,14.7,DEFENSIBLE_BUT_STRONG_ASSUMPTION,Severe but historically intelligible under repeated crisis and high hysteresis.
+PESSIMISTIC,2050,17.8,TOO_HIGH,Exceeds the approved V8.04 upper bound of 17.5%; would require explicit range revision before adoption.

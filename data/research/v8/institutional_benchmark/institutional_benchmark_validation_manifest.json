@@ -1,0 +1,15 @@
+{
+  "version": "V8.11",
+  "francescope_values_unchanged": true,
+  "direct_short_term_forecasts_not_extrapolated": true,
+  "long_run_gdp_levels_are_derived_proxy": false,
+  "long_run_median_direct_forecast_found": false,
+  "median_proxy_labeled": true,
+  "long_run_median_benchmark_status": "NA",
+  "oecd_numeric_dataset_retrieved": false,
+  "incompatible_units_averaged": false,
+  "near_term_consensus_requires_two_sources": true,
+  "institutional_charts_created": 3,
+  "index_recreated": false,
+  "v7_modified": false
+}

@@ -1,0 +1,22 @@
+target_variable,year,value,unit,source,source_date_vintage,status,aggregation
+unemployment_rate,2000,N/A,%,N/A,N/A,UNAVAILABLE,annual observation
+real_gdp_per_capita,2000,N/A,"EUR/person, 2020 chain-linked prices",N/A,N/A,UNAVAILABLE,annual observation
+real_median_living_standard,2000,21410.0,"EUR/person/year, constant prices",INSEE ERFS_DNV01,project canonical snapshot; vintage not encoded in series,OBSERVED,annual observation
+unemployment_rate,2005,N/A,%,N/A,N/A,UNAVAILABLE,annual observation
+real_gdp_per_capita,2005,N/A,"EUR/person, 2020 chain-linked prices",N/A,N/A,UNAVAILABLE,annual observation
+real_median_living_standard,2005,22710.0,"EUR/person/year, constant prices",INSEE ERFS_DNV01,project canonical snapshot; vintage not encoded in series,OBSERVED,annual observation
+unemployment_rate,2010,9.275,%,Eurostat une_rt_q,project canonical snapshot; vintage not encoded in series,OBSERVED,annual mean of quarterly observations
+real_gdp_per_capita,2010,34310.0,"EUR/person, 2020 chain-linked prices",Eurostat nama_10_pc,project canonical snapshot; vintage not encoded in series,OBSERVED,annual observation
+real_median_living_standard,2010,23750.0,"EUR/person/year, constant prices",INSEE ERFS_DNV01,project canonical snapshot; vintage not encoded in series,OBSERVED,annual observation
+unemployment_rate,2015,10.350000000000001,%,Eurostat une_rt_q,project canonical snapshot; vintage not encoded in series,OBSERVED,annual mean of quarterly observations
+real_gdp_per_capita,2015,35370.0,"EUR/person, 2020 chain-linked prices",Eurostat nama_10_pc,project canonical snapshot; vintage not encoded in series,OBSERVED,annual observation
+real_median_living_standard,2015,23850.0,"EUR/person/year, constant prices",INSEE ERFS_DNV01,project canonical snapshot; vintage not encoded in series,OBSERVED,annual observation
+unemployment_rate,2019,8.425,%,Eurostat une_rt_q,project canonical snapshot; vintage not encoded in series,OBSERVED,annual mean of quarterly observations
+real_gdp_per_capita,2019,37160.0,"EUR/person, 2020 chain-linked prices",Eurostat nama_10_pc,project canonical snapshot; vintage not encoded in series,OBSERVED,annual observation
+real_median_living_standard,2019,24840.0,"EUR/person/year, constant prices",INSEE ERFS_DNV01,project canonical snapshot; vintage not encoded in series,OBSERVED,annual observation
+unemployment_rate,2022,7.325,%,Eurostat une_rt_q,project canonical snapshot; vintage not encoded in series,OBSERVED,annual mean of quarterly observations
+real_gdp_per_capita,2022,37280.0,"EUR/person, 2020 chain-linked prices",Eurostat nama_10_pc,project canonical snapshot; vintage not encoded in series,OBSERVED,annual observation
+real_median_living_standard,2022,25520.0,"EUR/person/year, constant prices",INSEE ERFS_DNV01,project canonical snapshot; vintage not encoded in series,OBSERVED,annual observation
+unemployment_rate,2025,7.725,%,Eurostat une_rt_q,project canonical snapshot; vintage not encoded in series,OBSERVED,annual mean of quarterly observations
+real_gdp_per_capita,2025,38360.0,"EUR/person, 2020 chain-linked prices",Eurostat nama_10_pc,project canonical snapshot; vintage not encoded in series,OBSERVED,annual observation
+real_median_living_standard,2025,25952.514017229,"EUR/person/year, constant prices",francescope_components_2010_2026.csv,project canonical snapshot; vintage not encoded in series,OBSERVED,annual observation

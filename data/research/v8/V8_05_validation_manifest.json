@@ -1,0 +1,11 @@
+{
+  "future_point_count": 27,
+  "historical_baseline_count": 3,
+  "target_count": 3,
+  "all_inside_ranges": true,
+  "scenario_ordering": true,
+  "optimistic_2050_worse_than_2025": true,
+  "point_forecasts_selected": true,
+  "v7_outputs_used": false,
+  "revision_rounds": 1
+}

@@ -1,0 +1,16 @@
+{
+  "version": "V8.08b",
+  "revision_rounds": 1,
+  "values_changed": [
+    "OPTIMISTIC unemployment_rate 2040: 10.5 -> 10.0"
+  ],
+  "2050_endpoints_unchanged": true,
+  "2030_points_unchanged": true,
+  "gdp_per_capita_unchanged": true,
+  "median_living_unchanged": true,
+  "scenario_ordering_preserved": true,
+  "all_points_inside_ranges": true,
+  "phase_coherence": "STRONG_OR_ACCEPTABLE",
+  "index_calculated": false,
+  "v7_modified": false
+}

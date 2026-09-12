@@ -1,0 +1,10 @@
+scenario,period,structural_backdrop_and_event_logic,formal_default_assumed
+OPTIMISTIC,2026-2030,"Structural pressure continues; one high-probability mild event may occur, but contained.",NO
+OPTIMISTIC,2031-2040,Later mild recession or correction with relatively effective adaptation and recovery.,NO
+OPTIMISTIC,2041-2050,Late shocks remain possible; accumulated scarring is limited by recovery quality.,NO
+CENTRAL,2026-2030,"Cooling and fiscal pressure; material recession, political disruption, or financial tightening is plausible.",NO
+CENTRAL,2031-2040,At least one significant clustered episode is plausible; partial recovery leaves persistent damage.,NO
+CENTRAL,2041-2050,Further event realization remains possible as ageing and debt amplify vulnerability.,NO
+PESSIMISTIC,2026-2030,"Early severe recession, energy/geopolitical shock, or funding stress triggers reinforcing feedback.",NO
+PESSIMISTIC,2031-2040,"Repeated or overlapping clusters interrupt recovery and deepen capital, credit, and labor scarring.",NO
+PESSIMISTIC,2041-2050,Late shocks compound already weak resilience; formal restructuring remains only an extreme branch.,NO

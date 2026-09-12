@@ -1,0 +1,4 @@
+scenario,unemployment_scarring,gdp_per_capita_scarring,median_living_scarring,channels
+OPTIMISTIC,LOW,LOW,LOW,hysteresis; lost capital; foregone investment; productivity; debt; prices; taxes; services
+CENTRAL,MEDIUM,MEDIUM,MEDIUM,hysteresis; lost capital; foregone investment; productivity; debt; prices; taxes; services
+PESSIMISTIC,HIGH,HIGH,HIGH,hysteresis; lost capital; foregone investment; productivity; debt; prices; taxes; services

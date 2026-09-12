@@ -1,0 +1,4 @@
+scenario,recovery_quality,cyclical_loss_recovered,hysteresis,investment_repair,policy_response,repeated_shocks
+OPTIMISTIC,relatively fast,much,LOW,partial to strong,relatively effective,limited
+CENTRAL,partial,some,MEDIUM,partial,mixed and delayed,plausible
+PESSIMISTIC,slow/incomplete,little,HIGH,weak,late or disorderly,frequent or clustered

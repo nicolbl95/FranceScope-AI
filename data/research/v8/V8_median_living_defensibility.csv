@@ -1,0 +1,4 @@
+scenario,classification,justification
+OPTIMISTIC,TOO_HIGH,"With 12% unemployment by 2050, EUR25,200 is strongly protected and requires unusually effective transfers, wage protection and distributional insulation."
+CENTRAL,COHERENT,"EUR23,900 reflects medium scarring while allowing transfers and household smoothing to limit the GDP-per-capita decline."
+PESSIMISTIC,COHERENT,"EUR22,000 reflects substantial unemployment, inflation, fiscal adjustment and housing/energy burden without one-for-one GDP transmission."

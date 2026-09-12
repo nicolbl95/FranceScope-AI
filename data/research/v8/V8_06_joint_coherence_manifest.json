@@ -1,0 +1,14 @@
+{
+  "official_anchor": {
+    "2025_annual": 7.725,
+    "2026_q1": 8.1,
+    "2026_q2": 8.3,
+    "definition": "BIT/ILO, France excluding Mayotte"
+  },
+  "candidate_paths_reviewed": 9,
+  "gdp_per_capita_revision_required": false,
+  "median_living_revision_required": false,
+  "candidate_pessimistic_2050_inside_approved_range": false,
+  "approved_forecast_artifacts_modified": false,
+  "index_calculated": false
+}

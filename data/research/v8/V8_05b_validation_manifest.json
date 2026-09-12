@@ -1,0 +1,11 @@
+{
+  "revised_points": [
+    "V8_GDPPC_OPT_2040",
+    "V8_GDPPC_CEN_2040"
+  ],
+  "future_points_inside_ranges": true,
+  "endpoints_2050_unchanged": true,
+  "revision_rounds": 1,
+  "unemployment_review": "coherent_no_change",
+  "median_living_review": "coherent_no_change"
+}

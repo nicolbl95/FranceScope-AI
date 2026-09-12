@@ -1,0 +1,33 @@
+{
+  "version": "V8.08",
+  "diagnostics_reproduced": true,
+  "values_changed": [
+    [
+      "real_median_living_standard",
+      "CENTRAL",
+      2040
+    ],
+    [
+      "real_median_living_standard",
+      "CENTRAL",
+      2050
+    ],
+    [
+      "real_median_living_standard",
+      "PESSIMISTIC",
+      2040
+    ],
+    [
+      "real_median_living_standard",
+      "PESSIMISTIC",
+      2050
+    ]
+  ],
+  "unemployment_unchanged": true,
+  "gdp_per_capita_unchanged": true,
+  "scenario_ordering_preserved": true,
+  "all_median_points_inside_ranges": true,
+  "cross_target_ratings": "STRONG_OR_ACCEPTABLE",
+  "index_calculated": false,
+  "v7_modified": false
+}

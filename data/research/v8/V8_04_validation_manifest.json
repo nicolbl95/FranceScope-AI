@@ -1,0 +1,13 @@
+{
+  "targets": [
+    "unemployment_rate",
+    "real_gdp_per_capita",
+    "real_median_living_standard"
+  ],
+  "baseline_unchanged": true,
+  "endpoint_values_selected": false,
+  "optimistic_2050_constraint": "enforced_as_explicit_scenario_assumption",
+  "institutional_forecasts_extrapolated": false,
+  "v7_outputs_used": false,
+  "event_channels_added_independently": false
+}

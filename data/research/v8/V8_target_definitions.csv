@@ -1,0 +1,4 @@
+target_variable,definition,annual_aggregation,unit,preferred_source,status
+unemployment_rate,ILO/harmonised unemployment rate: unemployed people as a share of the labor force; France age coverage follows the Eurostat series.,mean of quarterly rates,%,Eurostat une_rt_q,CANONICAL
+real_gdp_per_capita,Real GDP per person using Eurostat chain-linked volume GDP per capita at 2020 prices.,annual observation,"EUR/person, 2020 chain-linked prices",Eurostat nama_10_pc,CANONICAL
+real_median_living_standard,"FranceScope median living standard, corresponding to INSEE median niveau de vie: equivalised disposable household income per consumption unit, expressed in constant euros.",annual observation,"EUR/person/year, constant prices",INSEE ERFS_DNV01 / FranceScope canonical series,CANONICAL_WITH_PROJECT_TRANSFORMATION

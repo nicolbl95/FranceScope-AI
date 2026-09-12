@@ -1,0 +1,11 @@
+{
+  "source_rows": 64,
+  "final_rows": 64,
+  "risk_count": 16,
+  "duplicate_risk_horizon_rows": 0,
+  "horizon_monotonicity_violations": 0,
+  "range_violations": 0,
+  "judgment_flags_complete": true,
+  "v8_target_forecasts_selected": false,
+  "formal_default_certain": false
+}

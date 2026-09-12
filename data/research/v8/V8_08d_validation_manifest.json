@@ -1,0 +1,14 @@
+{
+  "version": "V8.08d",
+  "numerical_changes": false,
+  "scenario_terminology_recommendation": "Low deterioration / least-bad, Central deterioration, High deterioration",
+  "2050_combinations": {
+    "optimistic": "DEFENSIBLE",
+    "central": "DEFENSIBLE_BUT_STRONG",
+    "pessimistic": "DEFENSIBLE_BUT_STRONG"
+  },
+  "median_gdp_protection": "DEFENSIBLE",
+  "index_calculated": false,
+  "v7_modified": false,
+  "verdict": "V8_THEORY_DEFENSIBILITY_CONFIRMED"
+}

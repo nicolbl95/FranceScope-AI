@@ -1,0 +1,26 @@
+[
+  {
+    "target_variable": "unemployment_rate",
+    "definition": "ILO/harmonised unemployment rate: unemployed people as a share of the labor force; France age coverage follows the Eurostat series.",
+    "annual_aggregation": "mean of quarterly rates",
+    "unit": "%",
+    "preferred_source": "Eurostat une_rt_q",
+    "status": "CANONICAL"
+  },
+  {
+    "target_variable": "real_gdp_per_capita",
+    "definition": "Real GDP per person using Eurostat chain-linked volume GDP per capita at 2020 prices.",
+    "annual_aggregation": "annual observation",
+    "unit": "EUR/person, 2020 chain-linked prices",
+    "preferred_source": "Eurostat nama_10_pc",
+    "status": "CANONICAL"
+  },
+  {
+    "target_variable": "real_median_living_standard",
+    "definition": "FranceScope median living standard, corresponding to INSEE median niveau de vie: equivalised disposable household income per consumption unit, expressed in constant euros.",
+    "annual_aggregation": "annual observation",
+    "unit": "EUR/person/year, constant prices",
+    "preferred_source": "INSEE ERFS_DNV01 / FranceScope canonical series",
+    "status": "CANONICAL_WITH_PROJECT_TRANSFORMATION"
+  }
+]

@@ -1,0 +1,9 @@
+cluster,constituent_risks,evidence_note,typical_duration,severity_range,scarring_range,interaction_partners
+GLOBAL_MACRO_RECESSION,global recession,One or more global recession realizations; not ordinary slowdown.,2-3 years,medium to high,partial to meaningful,FINANCIAL_CREDIT; TRADE
+FRENCH_SOVEREIGN_FISCAL_STRESS,French sovereign/debt crisis; severe funding/refinancing crisis; formal default/restructuring,Separate spread/funding/default layers; default is tail only.,1-5 years,medium to very high,high if disorderly,FINANCIAL_CREDIT; POLITICAL
+FINANCIAL_CREDIT_CRISIS,banking/financial crisis; asset-price crash; credit crisis,"Correlated channels, not three independent shocks.",1-4 years,medium to high,medium to high,SOVEREIGN; HOUSING
+ENERGY_GEOPOLITICAL_SHOCK,major geopolitical conflict; energy shock; oil/gas shock,One causal geopolitical-to-energy episode may contain several channels.,1-3 years,medium to high,medium,TRADE; CLIMATE_FOOD
+CLIMATE_FOOD_SHOCK,major climate/food-price shock,Acute event layered onto chronic climate deterioration.,1-4 years,medium to high,medium to high,ENERGY_GEOPOLITICAL
+DOMESTIC_POLITICAL_INSTITUTIONAL,domestic political crisis,Broad political instability is not automatically macro catastrophe.,1-5 years,low to high,medium,SOVEREIGN; GLOBAL
+TRADE_DEGLOBALISATION,trade fragmentation shock,"Protectionism, sanctions, and supply-chain disruption.",2-5 years,medium,medium,GLOBAL; GEOPOLITICAL
+HOUSING_PROPERTY_STRESS,housing/real-estate shock,Property correction with macro-relevant credit transmission.,1-4 years,low to high,medium,FINANCIAL_CREDIT

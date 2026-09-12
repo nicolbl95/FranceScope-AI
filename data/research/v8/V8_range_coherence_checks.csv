@@ -1,0 +1,26 @@
+check,variable,scenario,result,detail
+range_width_increases,unemployment_rate,OPTIMISTIC,PASS,"[0.9000000000000004, 1.5, 1.9000000000000004]"
+range_width_increases,unemployment_rate,CENTRAL,PASS,"[1.4000000000000004, 2.1999999999999993, 2.5]"
+range_width_increases,unemployment_rate,PESSIMISTIC,PASS,"[2.5, 3.0, 4.5]"
+scenario_ordering,unemployment_rate,2030,PASS,"{'OPTIMISTIC': 8.05, 'CENTRAL': 8.7, 'PESSIMISTIC': 10.25}; unemployment_low_to_high"
+scenario_ordering,unemployment_rate,2040,PASS,"{'OPTIMISTIC': 8.65, 'CENTRAL': 9.9, 'PESSIMISTIC': 12.5}; unemployment_low_to_high"
+scenario_ordering,unemployment_rate,2050,PASS,"{'OPTIMISTIC': 9.05, 'CENTRAL': 11.25, 'PESSIMISTIC': 15.25}; unemployment_low_to_high"
+optimistic_2050_worse_than_2025,unemployment_rate,OPTIMISTIC,PASS,"baseline=7.725; range=(8.1, 10.0)"
+range_width_increases,real_gdp_per_capita,OPTIMISTIC,PASS,"[2000, 4000, 6000]"
+range_width_increases,real_gdp_per_capita,CENTRAL,PASS,"[2000, 4000, 5000]"
+range_width_increases,real_gdp_per_capita,PESSIMISTIC,PASS,"[2500, 5000, 6500]"
+scenario_ordering,real_gdp_per_capita,2030,PASS,"{'OPTIMISTIC': 39500.0, 'CENTRAL': 38500.0, 'PESSIMISTIC': 36750.0}; level_high_to_low"
+scenario_ordering,real_gdp_per_capita,2040,PASS,"{'OPTIMISTIC': 41000.0, 'CENTRAL': 38000.0, 'PESSIMISTIC': 34000.0}; level_high_to_low"
+scenario_ordering,real_gdp_per_capita,2050,PASS,"{'OPTIMISTIC': 35000.0, 'CENTRAL': 34000.0, 'PESSIMISTIC': 30250.0}; level_high_to_low"
+optimistic_2050_worse_than_2025,real_gdp_per_capita,OPTIMISTIC,PASS,"baseline=38360.0; range=(32000, 38000)"
+range_width_increases,real_median_living_standard,OPTIMISTIC,PASS,"[1400, 1500, 1900]"
+range_width_increases,real_median_living_standard,CENTRAL,PASS,"[1500, 1700, 2200]"
+range_width_increases,real_median_living_standard,PESSIMISTIC,PASS,"[1800, 2500, 3500]"
+scenario_ordering,real_median_living_standard,2030,PASS,"{'OPTIMISTIC': 26500.0, 'CENTRAL': 25950.0, 'PESSIMISTIC': 25100.0}; level_high_to_low"
+scenario_ordering,real_median_living_standard,2040,PASS,"{'OPTIMISTIC': 26250.0, 'CENTRAL': 25350.0, 'PESSIMISTIC': 23750.0}; level_high_to_low"
+scenario_ordering,real_median_living_standard,2050,PASS,"{'OPTIMISTIC': 24950.0, 'CENTRAL': 23900.0, 'PESSIMISTIC': 22250.0}; level_high_to_low"
+optimistic_2050_worse_than_2025,real_median_living_standard,OPTIMISTIC,PASS,"baseline=25952.514017; range=(24000, 25900)"
+only_three_numerical_targets,all,all,PASS,unemployment_rate; real_gdp_per_capita; real_median_living_standard
+no_final_point_forecasts,all,all,PASS,all future values are ranges
+v7_outputs_used,all,all,PASS,not read
+correlated_events_added_independently,all,all,PASS,clustered architecture preserved

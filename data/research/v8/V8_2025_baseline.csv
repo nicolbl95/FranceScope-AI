@@ -1,0 +1,4 @@
+target_variable,year,value,unit,source,source_date_vintage,status,aggregation
+unemployment_rate,2025,7.725,%,Eurostat une_rt_q,project canonical snapshot; vintage not encoded in series,OBSERVED,annual mean of quarterly observations
+real_gdp_per_capita,2025,38360.0,"EUR/person, 2020 chain-linked prices",Eurostat nama_10_pc,project canonical snapshot; vintage not encoded in series,OBSERVED,annual observation
+real_median_living_standard,2025,25952.514017229,"EUR/person/year, constant prices",francescope_components_2010_2026.csv,project canonical snapshot; vintage not encoded in series,OBSERVED,annual observation

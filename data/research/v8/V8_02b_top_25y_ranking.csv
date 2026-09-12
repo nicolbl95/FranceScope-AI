@@ -1,0 +1,17 @@
+rank,risk,probability_low,probability_central,probability_high,confidence,evidence_grade
+1,domestic political crisis,0.75,0.825,0.9,medium,C
+2,combinations of the above,0.72,0.785,0.85,low,D
+3,global recession,0.7,0.75,0.8,medium,B
+4,major climate/food-price shock,0.68,0.74,0.8,medium,B
+5,trade fragmentation shock,0.68,0.73,0.78,medium,B
+6,energy shock,0.65,0.7,0.75,medium,B
+7,major geopolitical conflict,0.62,0.66,0.7,low,C
+8,oil/gas shock,0.6,0.65,0.7,medium,B
+9,asset-price crash,0.58,0.64,0.7,medium,B
+10,housing/real-estate shock,0.52,0.585,0.65,medium,B
+11,credit crisis,0.48,0.54,0.6,medium,B
+12,euro-area sovereign crisis,0.36,0.405,0.45,medium,C
+13,banking/financial crisis,0.3,0.35,0.4,medium,B
+14,French sovereign/debt crisis,0.25,0.3,0.35,medium,D
+15,severe funding/refinancing crisis,0.12,0.15,0.18,low,D
+16,formal default/restructuring,0.03,0.035,0.04,low,D

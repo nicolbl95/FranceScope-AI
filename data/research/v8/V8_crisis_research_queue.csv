@@ -1,0 +1,61 @@
+risk_name,horizon,dimensions_to_research
+French sovereign/debt crisis,2 years,probability; timing; severity; duration; recovery; scarring; interaction
+French sovereign/debt crisis,5 years,probability; timing; severity; duration; recovery; scarring; interaction
+French sovereign/debt crisis,10 years,probability; timing; severity; duration; recovery; scarring; interaction
+French sovereign/debt crisis,25 years,probability; timing; severity; duration; recovery; scarring; interaction
+refinancing/spread crisis,2 years,probability; timing; severity; duration; recovery; scarring; interaction
+refinancing/spread crisis,5 years,probability; timing; severity; duration; recovery; scarring; interaction
+refinancing/spread crisis,10 years,probability; timing; severity; duration; recovery; scarring; interaction
+refinancing/spread crisis,25 years,probability; timing; severity; duration; recovery; scarring; interaction
+banking/financial crisis,2 years,probability; timing; severity; duration; recovery; scarring; interaction
+banking/financial crisis,5 years,probability; timing; severity; duration; recovery; scarring; interaction
+banking/financial crisis,10 years,probability; timing; severity; duration; recovery; scarring; interaction
+banking/financial crisis,25 years,probability; timing; severity; duration; recovery; scarring; interaction
+euro-area sovereign crisis,2 years,probability; timing; severity; duration; recovery; scarring; interaction
+euro-area sovereign crisis,5 years,probability; timing; severity; duration; recovery; scarring; interaction
+euro-area sovereign crisis,10 years,probability; timing; severity; duration; recovery; scarring; interaction
+euro-area sovereign crisis,25 years,probability; timing; severity; duration; recovery; scarring; interaction
+global recession,2 years,probability; timing; severity; duration; recovery; scarring; interaction
+global recession,5 years,probability; timing; severity; duration; recovery; scarring; interaction
+global recession,10 years,probability; timing; severity; duration; recovery; scarring; interaction
+global recession,25 years,probability; timing; severity; duration; recovery; scarring; interaction
+asset-price crash,2 years,probability; timing; severity; duration; recovery; scarring; interaction
+asset-price crash,5 years,probability; timing; severity; duration; recovery; scarring; interaction
+asset-price crash,10 years,probability; timing; severity; duration; recovery; scarring; interaction
+asset-price crash,25 years,probability; timing; severity; duration; recovery; scarring; interaction
+credit crisis,2 years,probability; timing; severity; duration; recovery; scarring; interaction
+credit crisis,5 years,probability; timing; severity; duration; recovery; scarring; interaction
+credit crisis,10 years,probability; timing; severity; duration; recovery; scarring; interaction
+credit crisis,25 years,probability; timing; severity; duration; recovery; scarring; interaction
+energy shock,2 years,probability; timing; severity; duration; recovery; scarring; interaction
+energy shock,5 years,probability; timing; severity; duration; recovery; scarring; interaction
+energy shock,10 years,probability; timing; severity; duration; recovery; scarring; interaction
+energy shock,25 years,probability; timing; severity; duration; recovery; scarring; interaction
+oil/gas shock,2 years,probability; timing; severity; duration; recovery; scarring; interaction
+oil/gas shock,5 years,probability; timing; severity; duration; recovery; scarring; interaction
+oil/gas shock,10 years,probability; timing; severity; duration; recovery; scarring; interaction
+oil/gas shock,25 years,probability; timing; severity; duration; recovery; scarring; interaction
+major geopolitical conflict,2 years,probability; timing; severity; duration; recovery; scarring; interaction
+major geopolitical conflict,5 years,probability; timing; severity; duration; recovery; scarring; interaction
+major geopolitical conflict,10 years,probability; timing; severity; duration; recovery; scarring; interaction
+major geopolitical conflict,25 years,probability; timing; severity; duration; recovery; scarring; interaction
+trade fragmentation shock,2 years,probability; timing; severity; duration; recovery; scarring; interaction
+trade fragmentation shock,5 years,probability; timing; severity; duration; recovery; scarring; interaction
+trade fragmentation shock,10 years,probability; timing; severity; duration; recovery; scarring; interaction
+trade fragmentation shock,25 years,probability; timing; severity; duration; recovery; scarring; interaction
+major climate/food-price shock,2 years,probability; timing; severity; duration; recovery; scarring; interaction
+major climate/food-price shock,5 years,probability; timing; severity; duration; recovery; scarring; interaction
+major climate/food-price shock,10 years,probability; timing; severity; duration; recovery; scarring; interaction
+major climate/food-price shock,25 years,probability; timing; severity; duration; recovery; scarring; interaction
+domestic political crisis,2 years,probability; timing; severity; duration; recovery; scarring; interaction
+domestic political crisis,5 years,probability; timing; severity; duration; recovery; scarring; interaction
+domestic political crisis,10 years,probability; timing; severity; duration; recovery; scarring; interaction
+domestic political crisis,25 years,probability; timing; severity; duration; recovery; scarring; interaction
+housing/real-estate shock,2 years,probability; timing; severity; duration; recovery; scarring; interaction
+housing/real-estate shock,5 years,probability; timing; severity; duration; recovery; scarring; interaction
+housing/real-estate shock,10 years,probability; timing; severity; duration; recovery; scarring; interaction
+housing/real-estate shock,25 years,probability; timing; severity; duration; recovery; scarring; interaction
+combinations of the above,2 years,probability; timing; severity; duration; recovery; scarring; interaction
+combinations of the above,5 years,probability; timing; severity; duration; recovery; scarring; interaction
+combinations of the above,10 years,probability; timing; severity; duration; recovery; scarring; interaction
+combinations of the above,25 years,probability; timing; severity; duration; recovery; scarring; interaction

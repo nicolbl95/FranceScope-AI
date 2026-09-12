@@ -1,0 +1,10 @@
+country,episode,start_year,end_year,peak_or_range_unemployment,real_gdp_per_capita_impact,median_income_impact,recovery_duration,mechanism,comparability_to_france,evidence_confidence
+France,early 1990s unemployment stress,1990,1997,about 9-12%,N/A,N/A,slow,labor-market persistence,High unemployment can persist without GDP collapse.,Moderate
+France,global financial crisis,2008,2010,about 7-9%,negative,N/A,partial,demand shock,Short-run joint downturn; median series not forced.,High
+France,COVID shock,2019,2021,about 8%,sharp 2020 fall,median rose in canonical series,rapid policy-supported,shutdown and fiscal support,Policy support weakens one-for-one mapping.,Moderate
+France,2022-2026 slowdown,2022,2026,7.2-8.3%,stagnation/slow growth,recent median data,ongoing,"inflation, energy and weak demand",Current official anchor reaches 8.3% in Q2 2026.,High
+Spain,euro-area sovereign/banking crisis,2008,2013,>26%,large decline,income damage,multi-year,"housing, banking and sovereign stress","Stress analogue, not a France forecast.",Moderate
+Greece,sovereign crisis,2008,2013,>27%,severe collapse,large household damage,long,sovereign adjustment and depression,Upper-bound severe analogue.,Moderate
+Portugal,euro-area adjustment,2008,2013,>16%,decline,income pressure,multi-year,external adjustment and credit,Intermediate stress analogue.,Moderate
+Italy,post-2008 stagnation,2008,2020,about 12%,weak/flat,persistent weakness,long,productivity and fiscal constraints,Long stagnation analogue.,Moderate
+Japan,demographic stagnation,1995,2020,generally <5%,low growth,mixed,long,ageing with labor absorption,Shows unemployment can stay low despite stagnation.,Moderate

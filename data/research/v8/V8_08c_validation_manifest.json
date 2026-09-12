@@ -1,0 +1,19 @@
+{
+  "version": "V8.08c",
+  "revision_rounds": 1,
+  "values_changed": [
+    "OPTIMISTIC unemployment_rate 2030: 9.0 -> 8.5",
+    "CENTRAL unemployment_rate 2030: 9.7 -> 9.1"
+  ],
+  "pessimistic_2030_unchanged": true,
+  "2040_values_unchanged": true,
+  "2050_endpoints_unchanged": true,
+  "gdp_per_capita_unchanged": true,
+  "median_living_unchanged": true,
+  "scenario_ordering_preserved": true,
+  "all_points_inside_ranges": true,
+  "observed_2026_q2_anchor_considered": true,
+  "phase_coherence": "STRONG_OR_ACCEPTABLE",
+  "index_calculated": false,
+  "v7_modified": false
+}

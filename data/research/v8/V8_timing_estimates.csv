@@ -1,0 +1,49 @@
+risk,conditional_timing_band,conditional_share,basis
+material sovereign stress,EARLY 2026-2030,0.4,judgment
+material sovereign stress,MID 2031-2040,0.35,judgment
+material sovereign stress,LATE 2041-2050,0.25,judgment
+severe funding/refinancing crisis,EARLY 2026-2030,0.4,judgment
+severe funding/refinancing crisis,MID 2031-2040,0.35,judgment
+severe funding/refinancing crisis,LATE 2041-2050,0.25,judgment
+formal default/restructuring,EARLY 2026-2030,0.4,judgment
+formal default/restructuring,MID 2031-2040,0.35,judgment
+formal default/restructuring,LATE 2041-2050,0.25,judgment
+banking/financial crisis,EARLY 2026-2030,0.4,judgment
+banking/financial crisis,MID 2031-2040,0.35,judgment
+banking/financial crisis,LATE 2041-2050,0.25,judgment
+euro-area sovereign crisis,EARLY 2026-2030,0.4,judgment
+euro-area sovereign crisis,MID 2031-2040,0.35,judgment
+euro-area sovereign crisis,LATE 2041-2050,0.25,judgment
+global recession,EARLY 2026-2030,0.4,judgment
+global recession,MID 2031-2040,0.35,judgment
+global recession,LATE 2041-2050,0.25,judgment
+asset-price crash,EARLY 2026-2030,0.4,judgment
+asset-price crash,MID 2031-2040,0.35,judgment
+asset-price crash,LATE 2041-2050,0.25,judgment
+credit crisis,EARLY 2026-2030,0.4,judgment
+credit crisis,MID 2031-2040,0.35,judgment
+credit crisis,LATE 2041-2050,0.25,judgment
+energy shock,EARLY 2026-2030,0.4,judgment
+energy shock,MID 2031-2040,0.35,judgment
+energy shock,LATE 2041-2050,0.25,judgment
+oil/gas shock,EARLY 2026-2030,0.4,judgment
+oil/gas shock,MID 2031-2040,0.35,judgment
+oil/gas shock,LATE 2041-2050,0.25,judgment
+major geopolitical conflict,EARLY 2026-2030,0.4,judgment
+major geopolitical conflict,MID 2031-2040,0.35,judgment
+major geopolitical conflict,LATE 2041-2050,0.25,judgment
+trade fragmentation shock,EARLY 2026-2030,0.4,judgment
+trade fragmentation shock,MID 2031-2040,0.35,judgment
+trade fragmentation shock,LATE 2041-2050,0.25,judgment
+major climate/food-price shock,EARLY 2026-2030,0.4,judgment
+major climate/food-price shock,MID 2031-2040,0.35,judgment
+major climate/food-price shock,LATE 2041-2050,0.25,judgment
+domestic political crisis,EARLY 2026-2030,0.4,judgment
+domestic political crisis,MID 2031-2040,0.35,judgment
+domestic political crisis,LATE 2041-2050,0.25,judgment
+housing/real-estate shock,EARLY 2026-2030,0.4,judgment
+housing/real-estate shock,MID 2031-2040,0.35,judgment
+housing/real-estate shock,LATE 2041-2050,0.25,judgment
+combinations of the above,EARLY 2026-2030,0.4,judgment
+combinations of the above,MID 2031-2040,0.35,judgment
+combinations of the above,LATE 2041-2050,0.25,judgment

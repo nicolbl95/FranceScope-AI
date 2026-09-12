@@ -1,0 +1,19 @@
+risk,unemployment_direction,gdp_per_capita_direction,median_living_direction,severity_by_2050,confidence
+ageing/demography,up,down,down,HIGH,HIGH
+fiscal deficits,up,down,down,HIGH,HIGH
+debt/interest feedback,up,down,down,HIGH,MEDIUM
+taxation/spending constraints,up,down,down,MEDIUM,MEDIUM
+under-investment,up,down,down,HIGH,MEDIUM
+capital weakness,up,down,down,HIGH,MEDIUM
+productivity,up,down,down,VERY HIGH,HIGH
+competitiveness,up,down,down,MEDIUM,MEDIUM
+deindustrialisation,up,down,down,HIGH,MEDIUM
+education/human capital,up,down,down,HIGH,MEDIUM
+infrastructure,up,down,down,MEDIUM,MEDIUM
+welfare/health burden,up,down,down,MEDIUM,MEDIUM
+migration,mixed,mixed,mixed,MEDIUM,LOW
+political/institutional constraints,up,down,down,HIGH,MEDIUM
+structural inflation/energy,up,down,down,MEDIUM,MEDIUM
+chronic climate damage,up,down,down,HIGH,MEDIUM
+AI/automation,mixed,mixed,mixed,MEDIUM,LOW
+technology outside AI,down,up,up,MEDIUM,LOW

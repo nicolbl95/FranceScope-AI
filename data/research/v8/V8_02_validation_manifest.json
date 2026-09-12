@@ -1,0 +1,8 @@
+{
+  "event_risks": 15,
+  "probability_rows": 64,
+  "structural_risks": 18,
+  "official_source_rows": 12,
+  "v8_target_forecasts_selected": false,
+  "formal_default_certain": false
+}

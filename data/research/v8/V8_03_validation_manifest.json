@@ -1,0 +1,10 @@
+{
+  "probability_source": "V8_crisis_probability_estimates_final.csv",
+  "independent_event_selection_excludes_compound_row": true,
+  "event_clusters": 8,
+  "scenarios": 3,
+  "target_endpoints_selected": false,
+  "target_direction_rows": 9,
+  "formal_default_assumed_in_central": false,
+  "v7_artifacts_modified": false
+}

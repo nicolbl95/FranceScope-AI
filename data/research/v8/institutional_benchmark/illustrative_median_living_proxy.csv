@@ -1,0 +1,4 @@
+target_variable,year,value,unit,classification,confidence,notes
+real_median_living_standard,2030,26475.733342,"EUR/person/year, constant prices",ILLUSTRATIVE_INSTITUTIONAL_CONSISTENT_PROXY,LOW,Not part of the institutional reference; retained only to illustrate a fixed-2025-ratio transformation.
+real_median_living_standard,2040,30424.787128,"EUR/person/year, constant prices",ILLUSTRATIVE_INSTITUTIONAL_CONSISTENT_PROXY,LOW,Not part of the institutional reference; retained only to illustrate a fixed-2025-ratio transformation.
+real_median_living_standard,2050,34962.871842,"EUR/person/year, constant prices",ILLUSTRATIVE_INSTITUTIONAL_CONSISTENT_PROXY,LOW,Not part of the institutional reference; retained only to illustrate a fixed-2025-ratio transformation.
