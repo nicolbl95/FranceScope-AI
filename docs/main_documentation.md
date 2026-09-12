@@ -61,32 +61,62 @@ budgétaire, sous-investissement et scarring restent importants.
 
 ## 4. Théorie macroéconomique centrale
 
-Les trois scénarios partagent un socle de détérioration structurelle. Les
-différences portent surtout sur le calendrier, la sévérité et la durée des
-chocs, la qualité de la reprise, le scarring cumulé et la force des facteurs
-compensateurs.
+FranceScope ne se limite pas à choisir une hypothèse de croissance plus basse
+qu’un benchmark institutionnel. Sa thèse est que des fragilités structurelles,
+des boucles de rétroaction et des chocs répétés peuvent modifier la dynamique
+de long terme elle-même.
+
+Les prévisions macroéconomiques de référence restent utiles, mais les
+prévisions ponctuelles et les trajectoires centrales comportent une
+incertitude irréductible. L’inflation, le chômage, la croissance, les taux,
+les récessions et les points de retournement ont régulièrement fait l’objet
+d’erreurs de prévision, en particulier dans un environnement de rupture
+technologique, de tensions géopolitiques, de risque climatique, de chocs
+énergétiques, d’instabilité financière et de vieillissement.
+
+FranceScope retient donc une autre pondération : il accorde davantage de poids
+à l’accumulation des contraintes françaises, à leur interaction et aux
+dommages persistants après choc. Il ne pose pas une crise souveraine ou
+financière comme inévitable ; il examine comment le système devient plus
+fragile lorsque plusieurs mécanismes se renforcent.
 
 ### Pressions structurelles
 
-- déficits persistants, dette et charge du service de la dette ;
-- taux d’intérêt et coût du crédit ;
-- investissement et formation de capital faibles ;
-- productivité insuffisante et contraintes de compétitivité ;
-- vieillissement, retraites et pression sur les dépenses sociales ;
-- contraintes sur la population active ;
-- désindustrialisation, énergie et dommages climatiques ;
-- chocs géopolitiques, fragmentation commerciale et risque financier ;
-- récessions répétées, hystérèse du chômage et reprises incomplètes ;
-- contraintes politiques et confiance limitée dans un retour complet à la
-  moyenne.
+- déficits persistants, dette élevée et charge du service de la dette ;
+- prélèvements obligatoires élevés et dépenses rigides, qui réduisent l’espace
+  disponible pour l’investissement productif ;
+- déficit extérieur, désindustrialisation, compétitivité fragile et
+  productivité insuffisante ;
+- investissement et formation de capital faibles, avec une croissance
+  potentielle contrainte ;
+- vieillissement, retraites, baisse de la population active et pression sur les
+  dépenses sociales ;
+- dépendance énergétique, transition coûteuse, dommages climatiques et
+  fragmentation géopolitique ;
+- concurrence technologique et difficulté à développer, diffuser, monétiser et
+  capter localement les gains de l’IA ;
+- contraintes politiques et sociales qui peuvent ralentir l’ajustement ;
+- récessions répétées, hystérèse du chômage et pertes de capital humain.
+
+Ces facteurs ne sont pas seulement additifs. Une croissance faible réduit les
+recettes, limite l’investissement et augmente le ratio de dette ; la dette et
+le risque perçu renchérissent ensuite le financement. De même, une demande
+déprimée réduit les débouchés, ce qui reporte l’investissement et affaiblit la
+production potentielle. C’est cette dynamique auto-renforçante, plus que
+l’existence d’un choc isolé, qui motive la prudence de long terme de
+FranceScope.
 
 ### Facteurs compensateurs
 
 Les gains de productivité liés à l’IA, l’automatisation, l’innovation, une
 reprise de l’investissement, la transition énergétique ou une capacité de
-réforme peuvent améliorer la trajectoire. Dans le cadre FranceScope, ils ne
-dominent pas automatiquement les contraintes persistantes : leur diffusion,
-leur calendrier et leurs effets distributifs restent incertains.
+réforme peuvent améliorer la trajectoire. L’IA est notamment ambivalente :
+elle peut réduire les coûts, créer de nouvelles activités et augmenter les
+salaires, mais aussi déplacer des emplois ou laisser les gains captés à
+l’étranger si les entreprises françaises ne s’adaptent pas. Dans le cadre
+FranceScope, ces facteurs positifs ne dominent pas automatiquement les
+contraintes persistantes : leur diffusion, leur calendrier et leurs effets
+distributifs restent incertains.
 
 ## 5. Variables prévues et variables causales
 
@@ -109,96 +139,115 @@ Ces variables structurent les canaux de transmission et les tests de
 cohérence. Elles ne sont pas toutes présentées comme des forecasts numériques
 autonomes dans le résultat V8.
 
-## 6. Diagramme causal
+## 6. Deux boucles de rétroaction centrales
 
-Le diagramme montre des canaux de transmission, pas une équation unique ni une
+Les schémas montrent des canaux de transmission, pas une équation unique ni une
 simulation supplémentaire.
 
 ```mermaid
 flowchart LR
-    subgraph S["Pressions et chocs"]
-        AGE["Vieillissement"]
-        GEO["Géopolitique / commerce"]
-        ENE["Énergie"]
-        CLI["Climat"]
-        FIN["Risque de crise financière"]
-        AI["IA / automatisation"]
-    end
-
-    subgraph P["Mécanismes macroéconomiques"]
-        LAB["Population active"]
-        PEN["Retraites / dépenses sociales"]
-        CONS["Consommation des ménages"]
-        INV["Investissement"]
-        PROD["Productivité"]
-        WAGE["Salaires"]
-        EMP["Emploi"]
-        UNEMP["Chômage"]
-        GROWTH["Production / croissance"]
-        TAX["Recettes fiscales"]
-        SPEND["Dépenses publiques"]
-        DEBT["Dette / déficit"]
-        RATE["Taux / coût du crédit"]
-        SCAR["Hystérèse / scarring"]
-    end
-
-    AGE --> LAB
-    AGE --> PEN
-    LAB --> EMP
-    PEN --> SPEND
-    CONS --> GROWTH
-    INV --> PROD
-    PROD --> GROWTH
-    PROD --> WAGE
-    GROWTH --> EMP
-    GROWTH --> TAX
-    EMP --> WAGE
-    EMP --> UNEMP
-    UNEMP --> CONS
-    UNEMP --> SPEND
-    UNEMP --> TAX
-    TAX --> DEBT
-    SPEND --> DEBT
-    DEBT --> RATE
-    RATE --> INV
-    RATE --> CONS
-    RATE --> GROWTH
-    GEO --> GROWTH
-    GEO --> INV
-    ENE --> CONS
-    ENE --> PROD
-    ENE --> INV
-    CLI --> PROD
-    CLI --> INV
-    FIN --> RATE
-    FIN --> INV
-    FIN --> SCAR
-    UNEMP --> SCAR
-    SCAR --> EMP
-    SCAR --> GROWTH
-    AI --> PROD
-    AI --> EMP
-    AI --> WAGE
+    DEF["Déficit persistant"] --> DEBT["Dette plus élevée"]
+    DEBT --> RISK["Prime de risque / coût de financement"]
+    RISK --> INT["Charge d'intérêt plus élevée"]
+    INT --> DEF
+    DEF --> BORROW["Nouveaux emprunts"]
+    BORROW --> DEBT
 ```
 
-Quelques chaînes importantes sont explicites : une croissance plus faible
-réduit les recettes ; le chômage augmente les dépenses et réduit les recettes ;
-les déficits augmentent la dette ; la dette peut accroître le coût du
-financement ; ce coût affaiblit l’investissement et la croissance. Le
-vieillissement pèse simultanément sur les dépenses et la population active.
-L’IA peut soutenir la productivité tout en perturbant l’emploi, tandis que les
-crises financières peuvent laisser une cicatrice persistante.
+```mermaid
+flowchart LR
+    LOW["Croissance faible"] --> EMP["Emploi / revenus plus faibles"]
+    EMP --> CONS["Consommation plus faible"]
+    CONS --> DEM["Demande plus faible"]
+    DEM --> INV["Investissement plus faible"]
+    INV --> PROD["Productivité / production plus faibles"]
+    PROD --> LOW
+```
+
+### Interaction des boucles
+
+Les deux boucles peuvent s’alimenter : **croissance faible → recettes fiscales
+plus faibles → consolidation plus difficile → déficit et dette plus élevés →
+financement plus coûteux → investissement et activité plus faibles →
+croissance plus faible**. Le premier schéma représente ainsi un mécanisme
+possible de boule de neige de dette, non une crise souveraine mécanique ou
+certaine.
+
+Le vieillissement amplifie simultanément les deux boucles : davantage de
+retraités peut accroître les dépenses de retraite et de santé, tandis qu’un
+nombre plus faible d’actifs relativement aux retraités ralentit la base des
+cotisations et des recettes. Il pèse donc sur les finances publiques comme sur
+la croissance potentielle.
+
+### Chocs, contagion et cicatrices
+
+Les chocs externes n’ont pas besoin de créer les fragilités françaises pour
+les accélérer. Une crise financière mondiale, comme celle de 2008, une
+pandémie, un conflit, une restriction commerciale, un choc énergétique ou
+alimentaire, une sécheresse, un incendie ou une inondation peuvent dégrader le
+revenu réel, le crédit, l’investissement et les recettes publiques. Un choc
+financier peut suivre la chaîne : **stress du crédit → baisse de
+l’investissement → chômage plus élevé → recettes plus faibles et dépenses
+sociales plus élevées → déficit et dette plus élevés**.
+
+Après un choc, l’économie peut ne pas revenir entièrement sur sa trajectoire
+antérieure : investissement perdu, défaillances d’entreprises, persistance du
+chômage, érosion des compétences, capital moins productif et confiance réduite
+constituent l’**hystérèse**, ou *scarring*. Des chocs répétés rendent ces
+pertes cumulatives.
+
+### France dans une économie mondiale fragilisée
+
+La France n’évolue pas en vase clos. Les États-Unis font face à une dette et
+des déficits élevés, à des valorisations d’actifs et à un risque de tension
+financière ; l’Allemagne connaît des pressions sur sa croissance, son industrie
+et son énergie ; le Japon combine dette très élevée, vieillissement et faible
+croissance de long terme. D’autres économies avancées partagent, à des degrés
+divers, dette, vieillissement, productivité faible et vulnérabilité financière.
+La croissance plus rapide de certaines économies en développement ne supprime
+pas ces contraintes chez les principaux partenaires développés de la France.
+
+Le canal commercial est direct : **croissance faible chez les partenaires →
+demande d’exportations françaises plus faible → production française plus
+faible → emploi et revenus plus faibles → consommation et investissement plus
+faibles**. Une crise financière mondiale peut aussi déclencher un stress de
+crédit, réduire l’investissement français, provoquer une récession et
+aggraver les finances publiques. Ces canaux de contagion sont des risques
+plausibles de long horizon, pas la prédiction d’un effondrement certain.
 
 ## 7. Logique des scénarios
 
-| Scénario | Interprétation |
-|---|---|
-| **Dégradation contenue / least-bad** | Chocs plus tardifs ou mieux absorbés, reprises plus solides, mais contraintes structurelles toujours présentes |
-| **Détérioration centrale** | Combinaison intermédiaire de pression budgétaire, sous-investissement, chocs et reprises incomplètes |
-| **Forte détérioration** | Chocs plus sévères ou rapprochés, scarring élevé et faible capacité de récupération |
+Les trois scénarios contiennent les mêmes grandes familles de risques :
+pressions budgétaires, vieillissement, faiblesse de l’investissement,
+concurrence technologique, chocs climatiques, énergétiques, géopolitiques ou
+financiers. À l’horizon 2050, supposer que le scénario le moins défavorable ne
+subit aucun événement négatif serait moins crédible que de différencier les
+trajectoires par le **moment**, la **sévérité**, la **fréquence**, la
+**synchronisation**, la **durée**, la **qualité de la reprise**, le
+**scarring** et la force des facteurs compensateurs.
 
-« Optimiste » ne signifie donc pas prospérité : cela signifie le résultat le
-moins défavorable à l’intérieur du cadre structurel FranceScope.
+| Scénario | Timing, chocs et récupération |
+|---|---|
+| **Dégradation contenue / least-bad** | Chocs toujours possibles mais plus tardifs, moins sévères et moins synchronisés ; meilleure adaptation à l’IA, investissement et réformes plus efficaces, reprise plus rapide et cicatrices plus faibles |
+| **Détérioration centrale** | Chocs sérieux et périodiques, faiblesse modérée des partenaires développés, stabilisation partielle ; contraintes structurelles et pression budgétaire continuent de s’accumuler |
+| **Forte détérioration** | Chocs plus précoces, fréquents ou imbriqués ; stress financier, tensions commerciales, énergie et climat s’amplifient ; reprise plus faible, facteurs compensateurs limités et scarring plus élevé |
+
+Un choc climatique, alimentaire ou énergétique peut donc apparaître dans les
+trois scénarios : tardif et mieux absorbé dans le premier, plus sérieux avec
+reprise incomplète dans le central, plus précoce ou répété et combiné à la
+fragilité budgétaire dans le dernier. De même, le stress de dette peut rester
+contenu plus longtemps lorsque l’ajustement est crédible et la prime de risque
+faible, ou se matérialiser plus tôt lorsque le financement se renchérit et que
+la boucle dette-déficit s’accélère. Ces descriptions sont conceptuelles ; elles
+n’assignent pas une date certaine à une crise.
+
+« Optimiste » signifie donc **least-bad dans le cadre structurel
+FranceScope**, non prospérité ininterrompue. La thèse de détérioration repose
+sur : fragilités structurelles domestiques + boucle dette-financement + boucle
+croissance-demande-investissement + vieillissement + faiblesse des partenaires
+commerciaux + contagion mondiale + chocs répétés + hystérèse, moins les effets
+compensateurs de productivité, IA, investissement, réformes, transition
+énergétique et croissance externe.
 
 ## 8. Données et méthode de prévision
 
@@ -264,28 +313,37 @@ Le registre des sources institutionnelles est disponible dans
 | Forte détérioration | 2040 | 14,7 % | 34 000 € | 23 100 € |
 | Forte détérioration | 2050 | 17,8 % | 30 000 € | 20 800 € |
 
-![Comparaison des scénarios finaux](../outputs/charts/final_scenario_comparison.png)
-
-## Visualisations long terme
+## Évolution des trois variables — 2010 à 2050
 
 ### Chômage (2010–2050)
 
 ![Chômage — historique, scénarios et repères institutionnels](../outputs/charts/unemployment_2010_2050.png)
 
-Les points noirs représentent les observations publiques disponibles. Les
-scénarios FranceScope prolongent l’ancrage 2025 jusqu’en 2050. Les repères
-institutionnels sont volontairement discontinus : consensus court terme,
-prévision directe de la Banque de France et projection structurelle CE ne sont
-pas une série homogène.
+La ligne noire relie les observations publiques disponibles ; les marqueurs
+indiquent les années observées et les années intermédiaires ne sont pas
+observées. Les scénarios FranceScope prolongent l’ancrage 2025 jusqu’en 2050.
+Les repères institutionnels forment une famille visuelle cohérente, mais leurs
+styles indiquent des statuts différents : consensus court terme, prévision
+directe de la Banque de France et projection structurelle CE.
+
+Les scénarios FranceScope partagent les mêmes familles de risques : boucle
+dette-financement, faiblesse de la croissance, vieillissement, contagion
+mondiale, chocs énergie-climat et financiers, incertitude sur l’IA et
+scarring. Ils diffèrent par le timing, la sévérité, la durée, l’interaction,
+la récupération et l’hystérèse.
 
 ### PIB réel par habitant (2010–2050)
 
 ![PIB réel par habitant — historique et scénarios](../outputs/charts/gdp_per_capita_2010_2050.png)
 
-Les observations historiques disponibles sont affichées comme points, sans
-inventer une série annuelle. Aucun niveau institutionnel de long terme n’est
-tracé : les jalons institutionnels de croissance ne sont pas convertis
+Les observations historiques disponibles sont reliées visuellement, sans
+inventer les années intermédiaires. Aucun niveau institutionnel de long terme
+n’est tracé : les jalons institutionnels de croissance ne sont pas convertis
 mécaniquement en euros par personne.
+
+Le PIB par habitant reste donc comparé aux trois scénarios FranceScope
+uniquement ; aucune référence institutionnelle dérivée non vérifiée n’est
+présentée comme consensus.
 
 ### Niveau de vie médian réel (2010–2050)
 
@@ -295,52 +353,63 @@ Le graphique montre l’ancrage historique disponible et les trois trajectoires
 conditionnelles. Aucune prévision institutionnelle de long terme comparable
 n’est disponible ; elle reste `NA`.
 
-### Pourquoi le scénario de forte détérioration se dégrade
-
-![Scénario de forte détérioration annoté](../outputs/charts/pessimistic_scenario_annotated.png)
-
-Les annotations sont des moteurs narratifs du scénario, pas des observations
-futures. Elles illustrent une chaîne de chocs financiers, de coût du crédit,
-de sous-investissement, de productivité faible, de chocs répétés et de
-scarring cumulé.
-
-### Pourquoi le scénario central se dégrade
-
-![Scénario central annoté](../outputs/charts/central_scenario_annotated.png)
-
-Le scénario central utilise moins de chocs extrêmes, mais conserve une pression
-budgétaire persistante, le vieillissement, un investissement insuffisant et une
-reprise incomplète.
+Le scénario le moins défavorable n’exclut pas les chocs : il les suppose plus
+tardifs, moins graves ou mieux absorbés, avec une reprise plus rapide et moins
+de scarring. Les gains de productivité, l’adaptation à l’IA, l’investissement
+et une demande extérieure plus résiliente limitent la dégradation sans
+l’annuler.
 
 ## 10. Comparaison institutionnelle
 
-Le benchmark n’est pas un consensus institutionnel homogène jusqu’en 2050. Il
-combine plusieurs statuts :
+Le benchmark n’est pas une quatrième trajectoire FranceScope ni un consensus
+homogène jusqu’en 2050. Chaque point affiché porte un statut : `OBSERVED`,
+`DIRECT_FORECAST`, `LONG_RUN_PROJECTION`, `STRUCTURAL_REFERENCE`,
+`DERIVED_INSTITUTIONAL_REFERENCE`, `ILLUSTRATIVE_PROXY` ou `NA`. Aucun proxy
+n’est affiché dans les graphiques actuels.
 
-- consensus de court terme lorsque plusieurs références comparables existent ;
-- prévisions directes d’une institution pour un horizon donné ;
-- projections structurelles de long terme ;
-- hypothèses ou proxies qui ne doivent pas être présentés comme des forecasts
-  officiels.
+La famille visuelle institutionnelle conserve le même bleu pétrole ; le
+marqueur et le trait signalent le statut. Le consensus 2026–2027 agrège des
+`DIRECT_FORECAST` comparables, la Banque de France est affichée comme
+`DIRECT_FORECAST`, et la Commission européenne comme
+`LONG_RUN_PROJECTION`. Les métadonnées de valeur — institution, publication,
+vintage, variable, année, unité, définition, URL, transformation, hypothèses,
+confiance et limites — sont conservées dans le
+[registre de sources](../data/institutional/institutional_source_registry.csv)
+et détaillées dans la
+[méthodologie du benchmark](institutional_benchmark_methodology.md).
 
 Pour le chômage, les repères publics retenus sont un consensus de **8,2 % en
 2026**, **8,4 % en 2027**, la Banque de France à **7,8 % en 2028**, puis la
 référence structurelle de la Commission européenne à **7,1 % en 2030**,
 **6,7 % en 2040** et **6,3 % en 2050**.
 
-Il n’existe pas de niveau institutionnel GDPpc en euros directement comparable
-jusqu’en 2050 ni de prévision institutionnelle directe de long terme du niveau
-de vie médian. Les valeurs manquantes restent `NA`.
+La recherche ciblée n’a pas identifié de niveau institutionnel GDPpc en euros
+directement comparable jusqu’en 2050. Les prévisions AMECO, Banque de France,
+INSEE et FMI sont de court ou moyen terme ; l’OCDE publie des scénarios de long
+terme, mais aucun jeu de données de niveaux vérifié, avec base de prix,
+population et convention compatibles, n’a été intégré. La fiche France du
+[2024 Ageing Report](https://economy-finance.ec.europa.eu/document/download/e412927a-ea31-406d-bb6c-c925914123e9_en)
+fournit des hypothèses et des jalons de croissance, mais pas une série de
+niveaux compatible avec la définition FranceScope. Les jalons ne sont pas
+capitalisés artificiellement entre 2030, 2040 et 2050 : le statut GDPpc reste
+`NA`.
 
-FranceScope diverge parce qu’il s’agit d’un cadre conditionnel adverse, avec un
-horizon plus long et un poids plus élevé donné à la pression budgétaire, à la
-charge de la dette, à la faiblesse de la formation de capital et de la
-productivité, à la démographie, aux contraintes politiques, aux chocs répétés,
-à l’hystérèse et au scarring cumulé. Les projections institutionnelles sont
-souvent des références de base, pas des scénarios conditionnels de détérioration
-persistante.
+La recherche n’a pas identifié de prévision institutionnelle directe de long
+terme du niveau de vie médian réel français, ni de proxy distributif
+reproductible jusqu’en 2050. Les séries INSEE de
+[niveau de vie](https://www.insee.fr/fr/statistiques/2416808) sont
+historiques et les scénarios long terme de l’[OCDE](https://www.oecd.org/en/topics/sub-issues/economic-outlook/long-run-economic-scenarios-2025-update.html)
+ne donnent pas une médiane française 2050 directement comparable. Le statut
+reste `NA`, plutôt qu’un `ILLUSTRATIVE_PROXY` fondé sur un agrégat de revenu ou
+de consommation.
 
-![Comparaison du chômage avec les institutions](../outputs/charts/institutional_unemployment.png)
+FranceScope utilise les institutions comme benchmarks utiles, mais ne suppose
+pas que leurs trajectoires de base couvrent tous les mécanismes de
+détérioration. Le cadre FranceScope pondère davantage les faiblesses
+structurelles françaises, les boucles dette-déficit-financement, le
+sous-investissement, la démographie et les pertes persistantes après choc.
+La divergence est donc une différence de conditionnement et d’horizon, pas une
+affirmation que les institutions seraient « erronées ».
 
 ## 11. Limites
 

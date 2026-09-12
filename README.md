@@ -45,22 +45,20 @@ Ces trajectoires sont des scénarios conditionnels FranceScope, pas des
 prévisions institutionnelles officielles. Même la trajectoire « contenue »
 reste une détérioration structurelle par rapport à 2025.
 
-![Comparaison des scénarios finaux](outputs/charts/final_scenario_comparison.png)
+![Chômage — historique, scénarios et repères institutionnels](outputs/charts/unemployment_2010_2050.png)
 
 ## Pourquoi FranceScope diverge des institutions
 
-FranceScope explore un cadre structurel conditionnel plus adverse ; il ne
-prétend pas que les institutions ont tort. Les références institutionnelles
-combinent des prévisions directes de court terme et des projections
-structurelles de long terme, qui ne forment pas un consensus homogène jusqu’en
-2050.
-
-FranceScope donne davantage de poids à la pression budgétaire persistante, à la
-charge d’intérêt, au sous-investissement, à la faiblesse de la productivité,
-au vieillissement, aux chocs répétés et au *scarring*. Les repères chômage
-retenus sont : consensus 2026 **8,2 %**, consensus 2027 **8,4 %**, Banque de
-France 2028 **7,8 %**, puis Commission européenne **7,1 % en 2030**, **6,7 % en
-2040** et **6,3 % en 2050**.
+Les benchmarks institutionnels sont utiles, mais les prévisions ponctuelles
+restent incertaines, surtout face aux ruptures technologiques, géopolitiques,
+climatiques et financières. FranceScope attribue davantage de poids aux
+fragilités structurelles françaises et aux boucles dette-financement puis
+croissance-demande-investissement. Il intègre aussi la contagion via des
+partenaires développés fragilisés, les chocs répétés et le *scarring* après
+crise. Les trois scénarios diffèrent surtout par le timing, la sévérité,
+l’interaction des chocs, la reprise et l’ampleur des facteurs compensateurs.
+La [documentation principale](docs/main_documentation.md) détaille cette
+théorie et les références institutionnelles.
 
 ## LLM Engineering
 

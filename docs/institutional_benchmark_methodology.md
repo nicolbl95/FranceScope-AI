@@ -82,8 +82,10 @@ Chaque valeur conservée reçoit une classification :
 | `OBSERVED` | Valeur historique mesurée ou ancrage statistique | Chômage 2025 à 7,725 % | La présenter comme une prévision |
 | `DIRECT_FORECAST` | Prévision publiée explicitement pour une variable et un horizon | Chômage Banque de France 2026–2028 | La prolonger jusqu'en 2050 |
 | `LONG_RUN_PROJECTION` | Trajectoire structurelle conditionnelle sous hypothèses | Chômage CE 2030–2050 | La traiter comme un consensus de court terme |
-| `STRUCTURAL_ASSUMPTION` | Hypothèse de mécanisme ou de scénario | Scarring, pression budgétaire, récupération | L'attribuer à une institution sans source |
-| `DERIVED_PROXY` | Transformation ou proxy construit à partir d'une information publiée | Proxy illustratif de niveau de vie, s'il est utilisé | Le présenter comme une prévision officielle directe |
+| `STRUCTURAL_REFERENCE` | Hypothèse ou jalon structurel publié, sans niveau comparable | Jalons CE de croissance GDPpc | Le convertir automatiquement en niveau |
+| `DERIVED_INSTITUTIONAL_REFERENCE` | Transformation reproductible de séries institutionnelles compatibles | PIB réel / population, si les deux séries et conventions sont vérifiées | Le présenter comme une prévision officielle directe |
+| `ILLUSTRATIVE_PROXY` | Approximation explicitement non équivalente à la cible | Proxy de niveau de vie, s'il est utilisé | Le présenter comme un benchmark institutionnel |
+| `NA` | Valeur absente faute de comparabilité défendable | Niveau GDPpc 2050 ou médiane 2050, si non sourcés | Combler le manque par interpolation ou hypothèse |
 
 Cette taxonomie protège la frontière entre ce qui est observé, ce qui est
 publié comme prévision et ce qui relève d'une interprétation ou d'une
@@ -435,4 +437,3 @@ des transformations supplémentaires.
 - [échecs et leçons](failures_and_lessons.md) — documentation en cours ;
 - [rapport technique](technical_report.md) — documentation en cours ;
 - [registre institutionnel](../data/institutional/institutional_source_registry.csv).
-

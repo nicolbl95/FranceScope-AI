@@ -169,7 +169,7 @@ def institutional_unemployment() -> None:
         marker="D",
         linewidth=2,
         markersize=5,
-        label="Consensus institutionnel court terme",
+        label="Benchmark institutionnel — direct (consensus)",
     )
     direct = long_run[
         long_run["target_variable"].eq("unemployment_rate")
@@ -178,12 +178,12 @@ def institutional_unemployment() -> None:
     ax.plot(
         direct["year"].astype(int),
         direct["value"].astype(float),
-        color="#457B9D",
+        color="#264653",
         marker="s",
         linestyle=":",
         linewidth=2,
         markersize=5,
-        label="Banque de France — prévision directe",
+        label="Benchmark institutionnel — direct",
     )
     ec = long_run[
         long_run["target_variable"].eq("unemployment_rate")
@@ -192,12 +192,12 @@ def institutional_unemployment() -> None:
     ax.plot(
         ec["year"].astype(int),
         ec["value"].astype(float),
-        color="#6C757D",
+        color="#264653",
         marker="^",
         linestyle="--",
         linewidth=2,
         markersize=5,
-        label="Référence CE long terme",
+        label="Benchmark institutionnel — long terme",
     )
     ax.axvline(2028.5, color="#ADB5BD", linestyle="--", linewidth=1)
     ax.text(2028.7, 7.35, "Changement de nature\ninstitutionnelle", fontsize=8.5, color="#59636E")
@@ -205,7 +205,7 @@ def institutional_unemployment() -> None:
     ax.text(
         0,
         1.02,
-        "Les références court terme et la projection CE long terme ne forment pas une série homogène",
+        "Une famille visuelle unique ; les styles indiquent le changement de statut",
         transform=ax.transAxes,
         fontsize=9.5,
         color="#59636E",
@@ -221,7 +221,7 @@ def institutional_unemployment() -> None:
     ax.text(
         0,
         -0.18,
-        "Banque de France : prévisions directes. CE : projection structurelle âge 20–64, non directement comparable.",
+        "Consensus 2026–2027, Banque de France 2028, puis projection structurelle CE 2030–2050.",
         transform=ax.transAxes,
         fontsize=9,
         color="#59636E",
@@ -270,14 +270,16 @@ def long_run_chart(
     actual = baseline(forecasts)
     fig, ax = plt.subplots(figsize=(11.5, 6.6))
 
-    ax.scatter(
+    ax.plot(
         historical["year"].astype(int),
         historical["value"].astype(float),
         color="#263238",
         marker="o",
-        s=46,
+        linestyle="-",
+        linewidth=1.8,
+        markersize=7,
         zorder=6,
-        label="Observations historiques",
+        label="Observations historiques disponibles",
     )
 
     for scenario in SCENARIO_ORDER:
@@ -303,7 +305,7 @@ def long_run_chart(
             marker="D",
             linewidth=2,
             markersize=5,
-            label="Consensus institutionnel court terme",
+            label="Benchmark institutionnel — direct (consensus)",
         )
         direct = long_run[
             long_run["target_variable"].eq("unemployment_rate")
@@ -312,12 +314,12 @@ def long_run_chart(
         ax.plot(
             direct["year"].astype(int),
             direct["value"].astype(float),
-            color="#457B9D",
+            color="#264653",
             marker="s",
             linestyle=":",
             linewidth=2,
             markersize=5,
-            label="Banque de France — prévision directe",
+            label="Benchmark institutionnel — direct",
         )
         ec = long_run[
             long_run["target_variable"].eq("unemployment_rate")
@@ -326,12 +328,12 @@ def long_run_chart(
         ax.plot(
             ec["year"].astype(int),
             ec["value"].astype(float),
-            color="#6C757D",
+            color="#264653",
             marker="^",
             linestyle="--",
             linewidth=2,
             markersize=5,
-            label="Référence CE long terme",
+            label="Benchmark institutionnel — long terme",
         )
 
     ax.axvline(2025, color="#59636E", linewidth=1.1, linestyle="--", alpha=0.75)
@@ -339,7 +341,7 @@ def long_run_chart(
     ax.text(
         0,
         1.02,
-        "Points noirs = observations disponibles · lignes colorées = scénarios conditionnels",
+        "Ligne noire = relie les observations disponibles · marqueurs = années observées",
         transform=ax.transAxes,
         fontsize=9.5,
         color="#59636E",
@@ -398,7 +400,7 @@ def annotated_scenario_chart(
     ax.text(
         0,
         1.02,
-        "Annotations = moteurs narratifs du scénario, pas observations futures",
+        "Annotations = hypothèses de scénario ; elles ne décrivent pas des événements certains",
         transform=ax.transAxes,
         fontsize=9.5,
         color="#59636E",
@@ -409,11 +411,12 @@ def annotated_scenario_chart(
     ax.set_xticks([2025, 2030, 2040, 2050])
     ax.yaxis.set_major_formatter(FuncFormatter(lambda value, _: f"{value:.0f} %"))
     ax.yaxis.set_major_locator(MultipleLocator(2))
+    ax.set_ylim(min(y) - 0.4, max(y) + 2.6)
     ax.legend(loc="upper left", frameon=False)
     ax.text(
         0,
         -0.19,
-        "Les annotations expliquent les canaux de détérioration retenus ; elles ne créent pas de nouvelles données.",
+        "Les risques peuvent exister dans tous les scénarios ; timing, gravité, reprise et scarring diffèrent.",
         transform=ax.transAxes,
         fontsize=9,
         color="#59636E",
@@ -455,54 +458,40 @@ def dashboard() -> None:
             )
         )
         ax.grid(axis="x", visible=False)
+        if variable == "unemployment_rate":
+            ax.axhline(
+                6.3,
+                color="#264653",
+                linestyle=":",
+                linewidth=1.8,
+                label="CE 2050 — référence institutionnelle",
+            )
+        else:
+            ax.text(
+                0.5,
+                0.08,
+                "Institution : NA\n(niveau comparable indisponible)",
+                transform=ax.transAxes,
+                ha="center",
+                va="bottom",
+                fontsize=8.5,
+                color="#59636E",
+            )
     fig.suptitle("FranceScope — résultats des scénarios en 2050", x=0.03, ha="left", fontsize=17, fontweight="bold")
-    fig.text(0.03, 0.91, "Comparaison rapide des trois cibles · aucune note composite", fontsize=10, color="#59636E")
-    fig.text(0.03, 0.02, "La ligne pointillée indique le niveau observé en 2025 ; les barres montrent les scénarios conditionnels FranceScope.",
+    fig.text(0.03, 0.01, "La ligne pointillée indique le niveau observé en 2025 ; CE 2050 est affichée uniquement pour le chômage. Les barres sont des scénarios conditionnels FranceScope.",
              fontsize=9, color="#59636E")
+    fig.subplots_adjust(bottom=0.18)
     save(fig, "final_scenario_comparison.png")
 
 
 def main() -> None:
-    scenario_chart(
-        "unemployment_rate",
-        "unemployment.png",
-        "Chômage — scénarios FranceScope jusqu’en 2050",
-        "Taux de chômage (%)",
-        FuncFormatter(lambda value, _: f"{value:.0f} %"),
-        percent,
-        "Le chômage augmente lorsque les chocs persistants et le scarring s’accumulent.",
-        MultipleLocator(2),
-    )
-    scenario_chart(
-        "real_gdp_per_capita",
-        "real_gdp_per_capita.png",
-        "PIB réel par habitant — scénarios FranceScope jusqu’en 2050",
-        "€ constants par personne",
-        FuncFormatter(lambda value, _: integer(value) + " €"),
-        euro,
-        "Mesure de production moyenne ; elle ne décrit pas à elle seule la distribution des revenus.",
-        MultipleLocator(2_000),
-    )
-    scenario_chart(
-        "real_median_living_standard",
-        "real_median_living.png",
-        "Niveau de vie médian réel — scénarios FranceScope jusqu’en 2050",
-        "€ constants par personne et par an",
-        FuncFormatter(lambda value, _: integer(value) + " €"),
-        euro,
-        "Mesure distribuée distincte du PIB réel par habitant, après impôts, transferts et redistribution.",
-        MultipleLocator(1_000),
-    )
-    institutional_unemployment()
-    institutional_gdp()
-    institutional_median()
     long_run_chart(
         "unemployment_rate",
         "unemployment_2010_2050.png",
         "Chômage — historique, scénarios et repères institutionnels (2010–2050)",
         "Taux de chômage (%)",
         FuncFormatter(lambda value, _: f"{value:.0f} %"),
-        "Les références institutionnelles sont affichées uniquement aux années et selon les statuts disponibles.",
+        "La ligne noire relie les observations disponibles ; les années intermédiaires ne sont pas observées.",
         MultipleLocator(2),
         show_institutional=True,
     )
@@ -524,27 +513,6 @@ def main() -> None:
         "Aucune prévision institutionnelle de long terme comparable n’est disponible.",
         MultipleLocator(1_000),
     )
-    annotated_scenario_chart(
-        "PESSIMISTIC",
-        "pessimistic_scenario_annotated.png",
-        "Scénario de forte détérioration — moteurs narratifs",
-        [
-            (2030, "Crise financière\n+ coût du crédit", (2031, 14.8)),
-            (2040, "Sous-investissement\n+ productivité stagnante", (2034, 18.0)),
-            (2050, "Chocs répétés\n+ scarring cumulé", (2042, 12.6)),
-        ],
-    )
-    annotated_scenario_chart(
-        "CENTRAL",
-        "central_scenario_annotated.png",
-        "Scénario central — moteurs narratifs",
-        [
-            (2030, "Pression budgétaire\npersistante", (2031, 10.8)),
-            (2040, "Vieillissement\n+ investissement faible", (2034, 14.4)),
-            (2050, "Hystérèse\n+ reprise incomplète", (2042, 11.0)),
-        ],
-    )
-    dashboard()
 
 
 if __name__ == "__main__":
