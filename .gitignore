@@ -59,3 +59,11 @@ data/**/scratch/
 /x.txt
 /check_gdp.py
 /diagnose_gdp.py
+
+# Historical docs kept locally, excluded from public repo
+/docs/FRANCESCOPE_V3_*
+/docs/FRANCESCOPE_V4_*
+/docs/V4_FULL_DATA_BOOK_REVIEW.md
+/docs/francescope_economic_index_v2.md
+/docs/v4_release_manifest.json
+/docs/v5_architecture.md
