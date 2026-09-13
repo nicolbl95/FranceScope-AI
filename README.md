@@ -14,11 +14,6 @@ consacré à la France. Il combine données historiques, recherche assistée par
 LLM, scénarios conditionnels, comparaison institutionnelle et contrôles de
 provenance.
 
-Le projet est à la fois un problème économique réel et un cas d’étude
-d’ingénierie des LLM : comment produire une analyse ambitieuse sans laisser
-des modèles imparfaits dériver hors du périmètre, des sources ou des décisions
-gelées ?
-
 ## Documentation principale
 
 [Lire la documentation principale du projet](docs/main_documentation.md)

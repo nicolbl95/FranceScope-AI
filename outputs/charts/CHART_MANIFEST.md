@@ -39,9 +39,8 @@ principaux : `unemployment_2010_2050.png`, `gdp_per_capita_2010_2050.png` et
 
 ## Décisions et limites
 
-- L’historique public de `final_historical_targets.csv` est affiché avec une
-  ligne reliant les points disponibles et des marqueurs ; les années
-  intermédiaires ne sont pas observées.
+- L’historique public de `final_historical_targets.csv` est distingué des
+  trajectoires scénarisées ; aucune année intermédiaire n’est inventée.
 - Pas de niveau institutionnel GDPpc long terme directement comparable n’est dessiné jusqu’en 2050. Les jalons CE
   de croissance `0,4 %`, `1,4 %`, `1,4 %` sont rappelés comme information
   séparée, sans conversion implicite en euros.
