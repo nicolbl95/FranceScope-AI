@@ -1,477 +1,251 @@
-# Échecs utiles et leçons d'ingénierie
+# Echecs utiles et lecons
 
-FranceScope s'est construit par essais, contrôles et révisions successives.
-Les problèmes rencontrés n'ont pas été traités comme de simples défauts
-locaux à corriger. Ils ont servi de signaux sur l'architecture, le workflow
-LLM, la provenance et les critères d'acceptation.
+Ce document conserve uniquement les echecs qui ont change l'architecture, la
+methode ou le workflow. Chaque cas suit la structure :
 
-> **Un bon système n'est pas celui qui ne se trompe jamais, mais celui qui rend ses erreurs détectables, explicables et corrigibles.**
+**Probleme -> Diagnostic -> Decision -> Lecon**
 
-Chaque cas suit la même structure d'analyse :
+Pour les regles operationnelles stabilisees, voir
+[reliable_llm_workflows.md](reliable_llm_workflows.md). Pour les gates
+d'acceptation, voir [evaluation_framework.md](evaluation_framework.md). Pour les
+erreurs de benchmark institutionnel, voir
+[institutional_benchmark_methodology.md](institutional_benchmark_methodology.md).
 
-- **PROBLÈME OBSERVÉ** — le symptôme constaté ;
-- **POURQUOI C'ÉTAIT IMPORTANT** — le risque créé pour le projet ;
-- **DIAGNOSTIC** — la cause ou la limite identifiée ;
-- **DÉCISION** — la réponse d'ingénierie choisie ;
-- **RÉSULTAT** — ce qui a changé après la réponse ;
-- **LEÇON** — le principe réutilisable.
+## 1. Complexite causale excessive
 
-Les sous-titres peuvent regrouper **DIAGNOSTIC**, **DÉCISION** et **RÉSULTAT**
-lorsqu'ils décrivent une même décision, mais chaque cas conserve cette chaîne
-de raisonnement.
+**Probleme**  
+Les premieres versions multipliaient les variables intermediaires et les liens
+causaux.
 
-## 1. La complexité n'était pas la crédibilité
+**Diagnostic**  
+La surface numerique devenait plus difficile a defendre que le raisonnement
+qu'elle etait censee clarifier.
 
-### Problème observé
+**Decision**  
+Reduire la sortie finale a trois cibles et garder le reste comme structure
+explicative.
 
-Les versions V1 à V7 ont progressivement représenté de nombreuses variables
-macroéconomiques et leurs interactions : investissement, crédit, demande,
-commerce, inflation, travail, démographie, productivité, énergie, climat,
-finances publiques et risques géopolitiques.
+**Lecon**  
+La complexite du modele n'est pas un substitut a la credibilite.
 
-### Pourquoi c'était important
+## 2. Sorties localement plausibles mais globalement incoherentes
 
-Cette architecture était riche et utile pour raisonner sur les mécanismes, mais
-chaque variable intermédiaire numérique ajoutait des hypothèses et une nouvelle
-surface à valider. La sophistication pouvait donner une impression de rigueur
-supérieure à la force réelle des preuves.
+**Probleme**  
+Chaque variable pouvait sembler plausible prise isolement, tout en contredisant
+les autres par ses pentes, ses ratios ou son timing.
 
-### Diagnostic
+**Diagnostic**  
+La validation univariee etait insuffisante.
 
-Le problème n'était pas seulement une équation mal codée. La surface de
-prévision elle-même était trop large pour rester facilement défendable.
+**Decision**  
+Introduire des revues temporelles et cross-variable avant acceptation.
 
-### Décision et résultat
+**Lecon**  
+Une bonne valeur locale peut rester un mauvais scenario global.
 
-V8 a réduit la surface numérique à trois cibles : chômage, PIB réel par
-habitant et niveau de vie médian réel. Les autres domaines sont devenus des
-moteurs de scénarios, des éléments de preuve ou du contexte structurel.
+## 3. Derive de modele et perte d'etat
 
-Le résultat est plus facile à auditer, à comparer et à expliquer.
+**Probleme**  
+Des decisions deja validees redevenaient "ouvertes" selon la session ou le
+modele actif.
 
-### Leçon
+**Diagnostic**  
+La memoire conversationnelle seule ne protege pas un projet long.
 
-> **Complexité du modèle ≠ crédibilité de la prévision.**
+**Decision**  
+Externaliser l'etat : fichiers autoritatifs, decisions gelees, manifests et
+handoffs structures.
 
-Pour un ingénieur, savoir abandonner une architecture devenue contre-productive
-est parfois plus important que savoir lui ajouter une fonctionnalité.
+**Lecon**  
+Un projet long a besoin d'un etat explicite, pas d'une conversation plus longue.
 
-## 2. La plausibilité locale ne garantissait pas la cohérence globale
+## 4. Boucles d'outils et repetition d'approches echouees
 
-### Problème observé
+**Probleme**  
+Le systeme pouvait relancer presque la meme commande, recherche ou hypothese
+apres un echec.
 
-Des valeurs individuelles de chômage, de PIB par habitant et de niveau de vie
-pouvaient sembler plausibles séparément, alors que leurs pentes, leurs phases ou
-leurs ratios racontaient des histoires différentes.
+**Diagnostic**  
+Sans contrainte explicite, l'agent peut confondre activite et progres.
 
-### Pourquoi c'était important
+**Decision**  
+Appliquer deux regles : ne jamais repeter le meme appel echoue ; changer de
+strategie apres deux echecs sans progres mesurable.
 
-Une sortie locale convaincante peut devenir incohérente lorsqu'elle est replacée
-dans le temps ou comparée aux autres cibles. Le risque était d'accepter trois
-bonnes phrases ou trois bons nombres qui ne formaient pas un scénario
-économique défendable.
+**Lecon**  
+L'echec doit declencher une bifurcation, pas une repetition.
 
-### Diagnostic
+## 5. Exploration trop large et lectures inutiles
 
-Les contrôles de plausibilité individuelle ne suffisaient pas. Il fallait
-évaluer les relations entre variables et les transitions 2025→2030,
-2030→2040 et 2040→2050.
+**Probleme**  
+Plus de recherche semblait utile meme quand les elements decisifs etaient deja
+trouves.
 
-### Décision et résultat
+**Diagnostic**  
+L'absence de stop condition faisait deriver cout, latence et qualite.
 
-Des revues temporelles et cross-variable ont été introduites. Elles ont révélé
-notamment un timing trop pessimiste du chômage optimiste au début de l'horizon,
-un décalage central sur 2030 et une protection du niveau de vie à comparer plus
-strictement au PIB.
+**Decision**  
+Imposer exploration bornee, lectures ciblees et preuve suffisante definie a
+l'avance.
 
-Les points ont été révisés uniquement lorsqu'une incohérence démontrée le
-justifiait.
+**Lecon**  
+Plus de raisonnement n'aide que s'il reduit l'incertitude pertinente.
 
-### Leçon
+## 6. Suredition apres resolution
 
-> **Une sortie peut sembler raisonnable seule et devenir incohérente dès qu'on la compare au reste du système.**
+**Probleme**  
+Une fois le probleme resolu, l'agent continuait parfois a modifier, reformuler
+ou "ameliorer" des zones deja validees.
 
-Cela a transformé l'évaluation d'un contrôle de sortie unique en un contrôle de
-relations.
+**Diagnostic**  
+Apres le succes, le risque principal devient la regression.
 
-## 3. Plus de raisonnement ne produisait pas toujours une meilleure exécution
+**Decision**  
+Appliquer la regle du plus petit changement sur et arreter apres validation
+etroite.
 
-### Problème observé
+**Lecon**  
+Savoir s'arreter fait partie de l'ingenierie.
 
-Un LLM pouvait continuer à lire, rechercher, comparer ou auditer alors que les
-éléments nécessaires à la décision étaient déjà disponibles.
+## 7. Mismatch source / definition
 
-### Pourquoi c'était important
+**Probleme**  
+Des valeurs comparables en apparence ne decrivaient pas le meme concept :
+population, unite, frequence, reel/nominal, agrege/par habitant.
 
-La réflexion supplémentaire pouvait augmenter la latence, le bruit et le coût
-sans réduire l'incertitude pertinente. Elle pouvait même réintroduire des
-questions déjà gelées.
+**Diagnostic**  
+La precision visuelle masquait une incompatibilite semantique.
 
-### Diagnostic
+**Decision**  
+Rendre obligatoires les controles de definition et de statut avant toute
+comparaison.
 
-Le problème était un manque de conditions d'arrêt et de limites d'exploration,
-pas un manque de puissance de raisonnement.
+**Lecon**  
+Une source fiable peut etre mal utilisee si sa definition est mal alignee.
 
-### Décision et résultat
+## 8. Mauvais usage des horizons
 
-Le workflow a introduit l'exploration bornée, les recherches ciblées, les
-conditions d'arrêt et l'interdiction des audits sans risque identifié.
+**Probleme**  
+Des forecasts de court terme, jalons de croissance et projections structurelles
+pouvaient etre traites comme s'ils avaient le meme statut.
 
-### Leçon
+**Diagnostic**  
+L'erreur d'horizon est parfois plus grave qu'une erreur de calcul.
 
-> **Plus de raisonnement n'est utile que s'il réduit l'incertitude pertinente.**
+**Decision**  
+Separer explicitement prevision directe, projection long terme, reference
+structurelle et `NA`.
 
-L'autonomie utile implique aussi de reconnaître que la tâche est terminée.
+**Lecon**  
+Un horizon non supporte doit bloquer la valeur, pas etre "complete".
 
-## 4. Les approches échouées pouvaient se répéter
+## 9. Transformations mathematiquement valides mais methodologiquement fausses
 
-### Problème observé
+**Probleme**  
+Des jalons de croissance GDPpc de long terme ont servi a deriver une trajectoire
+de niveaux en euros/personne.
 
-Après un échec d'outil, de commande ou d'hypothèse, le modèle pouvait réessayer
-une opération pratiquement identique.
+**Diagnostic**  
+Le calcul etait propre ; l'interpretation ne l'etait pas.
 
-### Pourquoi c'était important
+**Decision**  
+Supprimer le niveau derive, conserver les jalons comme reference structurelle et
+laisser le benchmark de niveau a `NA`.
 
-Un modèle capable peut rester prisonnier d'un motif local d'exécution. Chaque
-nouvelle tentative donne l'impression d'une activité, mais aucune information
-nouvelle n'est produite.
+**Lecon**  
+L'arithmetique ne suffit pas ; le sens methodologique prime.
 
-### Diagnostic et décision
+## 10. Fausse precision
 
-Deux règles explicites ont été introduites :
+**Probleme**  
+Lorsqu'une source manquait, la tentation etait forte de produire un proxy precis.
 
-> **Never repeat the exact same failed tool call.**
+**Diagnostic**  
+La precision ajoutee n'etait pas soutenue par la preuve disponible.
 
-> **If an approach fails twice without measurable progress, change the hypothesis, tool, command, file, or implementation strategy.**
+**Decision**  
+Preferer `NA` ou un proxy explicitement separe du benchmark principal.
 
-### Résultat et leçon
+**Lecon**  
+Une donnee manquante est parfois plus honnete qu'un chiffre elegant.
 
-Le changement de stratégie est devenu obligatoire après deux échecs sans
-progrès mesurable.
+## 11. Redondance de l'Index composite
 
-> **Une règle anti-loop transforme l'échec en signal de changement de stratégie.**
+**Probleme**  
+Apres reduction a trois cibles finales, l'Index composite n'apportait plus assez
+d'information independante.
 
-## 5. Une action techniquement valide pouvait être sans rapport avec l'objectif
+**Diagnostic**  
+Il ajoutait surtout une couche normative de ponderation et d'abstraction.
 
-### Problème observé
+**Decision**  
+Supprimer l'Index du framework final.
 
-Certains appels d'outils ou audits étaient valides en eux-mêmes mais ne
-rapprochaient pas du livrable : recherche trop large, nettoyage annexe,
-refactorisation ou validation redondante.
+**Lecon**  
+Une abstraction doit disparaitre lorsqu'elle ne cree plus de valeur nette.
 
-### Pourquoi c'était important
+## 12. Le prompt seul ne controlait pas le systeme
 
-L'activité de l'agent pouvait augmenter alors que la valeur de décision restait
-nulle. Cela compliquait aussi la revue en ajoutant des modifications étrangères
-au problème.
+**Probleme**  
+Un meilleur prompt ne resolvait ni la perte d'etat, ni la derive de scope, ni
+les erreurs de provenance.
 
-### Décision et résultat
+**Diagnostic**  
+Le projet avait besoin d'un systeme d'execution, pas seulement d'une meilleure
+formulation.
 
-La règle suivante a été appliquée :
+**Decision**  
+Passer au context engineering : scope, fichiers autoritatifs, etat gele, regles
+anti-loop, validation et handoffs.
 
-> **Every tool call must directly advance the requested task.**
+**Lecon**  
+Le prompt est un composant ; le workflow est le systeme.
 
-Chaque action devait être reliée à une question, une décision ou une
-validation. Le travail sans valeur de décision a été écarté.
+## 13. La confiance d'un seul modele etait insuffisante
 
-### Leçon
+**Probleme**  
+Un modele pouvait produire une explication persuasive tout en manquant une vraie
+incoherence.
 
-> **L'autonomie utile n'est pas la capacité à faire plus, mais à faire uniquement ce qui rapproche du résultat.**
+**Diagnostic**  
+La confiance interne d'un modele n'est pas une validation independante.
 
-## 6. L'état du projet pouvait dériver ou être perdu
+**Decision**  
+Utiliser des critiques adversariales multi-modeles, puis convertir chaque
+critique en test reproductible.
 
-### Problème observé
+**Lecon**  
+Le desaccord n'est utile que s'il devient testable.
 
-Sur un projet long, des décisions déjà validées pouvaient redevenir ambiguës :
-valeurs gelées, couches méthodologiques acceptées, distinction entre V7 et V8,
-ou statut du benchmark institutionnel.
+## 14. Besoin d'un jugement architectural humain
 
-### Pourquoi c'était important
+**Probleme**  
+Certaines decisions n'etaient ni purement statistiques ni purement textuelles :
+geler une couche, accepter `NA`, supprimer un artefact devenu inutile.
 
-La perte d'état crée des régressions invisibles. Un modèle peut réintroduire un
-ancien artefact non parce qu'il est meilleur, mais parce qu'il n'a plus accès à
-la décision qui l'avait écarté.
+**Diagnostic**  
+Le systeme automatise produit des candidats et des tests, mais pas l'arbitrage
+final de portee.
 
-### Décision et résultat
+**Decision**  
+Maintenir un human-in-the-loop sur les decisions de structure, de freeze et de
+reouverture.
 
-Le workflow a utilisé :
+**Lecon**  
+L'automatisation robuste ne remplace pas le jugement architectural ; elle le
+rend plus cible.
 
-- des fichiers autoritatifs ;
-- des décisions gelées ;
-- des phases versionnées ;
-- des manifests de validation ;
-- des handoffs structurés avec `PROJECT_VERSION`, `VALUES_CHANGED`,
-  `FILES_UPDATED`, `VALIDATION`, `VERDICT` et `NEXT_ACTION`.
+## 15. Resume des changements durables
 
-La continuité entre sessions et modèles est devenue un artefact explicite.
-
-### Leçon
-
-> **Un projet long a besoin d'un état explicite, pas seulement d'une conversation longue.**
-
-## 7. La surédition après le succès augmentait le risque
-
-### Problème observé
-
-Après qu'un résultat avait passé les contrôles demandés, l'agent pouvait
-continuer à refactoriser, auditer ou modifier des fichiers voisins.
-
-### Pourquoi c'était important
-
-Une fois le problème résolu, le risque dominant devient la régression. Chaque
-modification supplémentaire rend également plus difficile l'attribution de
-l'amélioration ou de la dégradation.
-
-### Décision et résultat
-
-Trois règles ont été appliquées :
-
-- plus petit changement sûr ;
-- arrêt lorsque le résultat est validé ;
-- réouverture formelle pour une couche gelée.
-
-### Leçon
-
-> **Arrêter au bon moment fait partie de l'ingénierie.**
-
-## 8. La confiance d'un seul modèle ne suffisait pas
-
-### Problème observé
-
-Un modèle pouvait produire une argumentation interne persuasive et manquer
-pourtant une incohérence entre le niveau de vie et le PIB, ou un problème de
-timing du chômage.
-
-### Pourquoi c'était important
-
-Une réponse bien écrite n'est pas une preuve indépendante. La confiance
-subjective du même modèle ne doit pas être confondue avec une validation.
-
-### Décision et résultat
-
-Des modèles indépendants ont été utilisés comme critiques, relecteurs
-adversariaux et vérificateurs de plausibilité. Le workflow était :
-
-```text
-critique → hypothèse → reproduction → vérification des preuves → gate de révision
-```
-
-Il ne s'agissait pas de voter entre modèles. Chaque critique devait produire un
-test reproductible avant de pouvoir changer une valeur.
-
-### Leçon
-
-> **Le désaccord entre modèles n'est utile que s'il devient testable.**
-
-## 9. Une transformation mathématiquement correcte pouvait être méthodologiquement fausse
-
-### Problème observé
-
-Des jalons de croissance du PIB réel par habitant publiés par la Commission
-européenne ont été utilisés pour dériver une trajectoire de niveaux en
-euros/personne par capitalisation.
-
-### Pourquoi c'était important
-
-Le calcul était arithmétiquement valide, mais il ajoutait une hypothèse de taux
-constant entre les jalons que la source ne garantissait pas.
-
-### Diagnostic et décision
-
-Le problème était sémantique : un jalon de croissance structurelle n'était pas
-un niveau institutionnel directement publié. La trajectoire dérivée a été
-supprimée ; les jalons de croissance ont été conservés comme références.
-
-### Résultat et leçon
-
-Le benchmark institutionnel de niveau GDPpc à long terme reste `NA`.
-
-> **Une transformation mathématiquement correcte peut être méthodologiquement fausse.**
-
-La provenance et le sens de la variable priment sur l'arithmétique seule.
-
-## 10. La fausse précision était pire que la donnée manquante
-
-### Problème observé
-
-Aucune prévision institutionnelle directement comparable du niveau de vie
-médian réel à long terme n'a été trouvée. Un proxy pouvait être envisagé.
-
-### Pourquoi c'était important
-
-Présenter ce proxy comme un benchmark officiel aurait masqué les hypothèses de
-distribution des revenus, d'impôts et de transferts et aurait donné une
-impression de précision non soutenue.
-
-### Décision et résultat
-
-Le benchmark officiel reste `NA` après l'ancrage observé de 2025. Un éventuel
-proxy illustratif reste séparé du benchmark principal et ne devient pas une
-valeur de consensus.
-
-### Leçon
-
-> **Une valeur manquante est préférable à une précision artificielle.**
-
-## 11. L'Index composite n'ajoutait plus assez de valeur
-
-### Problème observé
-
-Après la réduction de V8 à trois cibles finales, l'Index composite devenait
-redondant.
-
-### Pourquoi c'était important
-
-Les poids égaux étaient normatifs, la normalisation ajoutait une abstraction et
-le résultat ne fournissait pas d'information indépendante suffisante par rapport
-aux trois variables brutes.
-
-### Décision et résultat
-
-L'Index a été supprimé du framework final. Les cibles brutes sont devenues la
-sortie principale, plus lisible et plus directement interprétable.
-
-### Leçon
-
-> **Une abstraction doit être supprimée lorsqu'elle n'ajoute plus d'information.**
-
-Cette décision illustre le jugement produit et la discipline de périmètre.
-
-## 12. Le prompt engineering seul ne suffisait pas
-
-### Problème observé
-
-Une formulation plus précise ne résolvait pas à elle seule la perte d'état, la
-dérive de scope, la provenance, la répétition d'échecs ou le comportement
-d'arrêt.
-
-### Diagnostic et décision
-
-Le projet a évolué vers le context engineering : scope, état autoritatif,
-décisions gelées, typage des sources, contraintes d'outils, gates de validation,
-stop conditions et handoffs structurés.
-
-### Résultat et leçon
-
-Les instructions sont devenues un contrat d'exécution plutôt qu'une simple
-demande de texte.
-
-> **Le prompt est une partie du système, pas le système entier.**
-
-## 13. Plus de contexte pouvait réduire la qualité
-
-### Problème observé
-
-Les relectures intégrales et les contextes trop larges consommaient des tokens,
-diluaient les contraintes utiles et pouvaient réintroduire des décisions
-obsolètes.
-
-### Décision et résultat
-
-Le workflow a privilégié les lectures ciblées, les recherches bornées, les
-fichiers autoritatifs et l'absence de relecture des fichiers inchangés sans
-raison démontrée.
-
-### Leçon
-
-> **Moins de contexte, mieux sélectionné, peut produire un meilleur raisonnement.**
-
-Le context engineering concerne donc la sélection et la hiérarchie, pas
-seulement la quantité.
-
-## 14. Les sources institutionnelles n'étaient pas homogènes
-
-### Problème observé
-
-Le matériau institutionnel mélangeait observations, prévisions de court terme,
-projections structurelles, hypothèses de scénario et proxies.
-
-### Pourquoi c'était important
-
-Appeler l'ensemble « consensus institutionnel » aurait masqué les différences
-d'horizon, de définition et de statut.
-
-### Décision et résultat
-
-La taxonomie explicite a été appliquée :
-
-`OBSERVED`, `DIRECT_FORECAST`, `LONG_RUN_PROJECTION`,
-`STRUCTURAL_ASSUMPTION`, `DERIVED_PROXY`.
-
-La référence CE de chômage 20–64 ans est ainsi conservée comme projection
-structurelle de long terme, non comme prévision directe homogène avec les
-prévisions court terme.
-
-### Leçon
-
-> **Une source fiable peut être mal utilisée si son type est mal compris.**
-
-## 15. Ce qui a changé dans ma pratique d'ingénierie
-
-| Réflexe initial | Pratique mature |
+| Echec | Changement durable |
 |---|---|
-| Ajouter du détail au modèle | Réduire la surface de prévision |
-| Demander au modèle de raisonner davantage | Définir des gates d'évaluation |
-| Donner davantage de contexte | Curater le contexte autoritatif |
-| Réessayer une approche échouée | Forcer un changement de stratégie |
-| Laisser l'agent continuer | Utiliser des stop conditions |
-| Faire confiance à un modèle fort | Organiser une revue adversariale |
-| Lisser une sortie étrange | Exiger une incohérence démontrée |
-| Remplir les données manquantes | Préférer `NA` si la preuve manque |
-| Conserver une métrique utile en apparence | Supprimer les abstractions redondantes |
-| Traiter le prompt comme contrôle principal | Concevoir contexte, état et workflow |
-
-## 16. Les leçons les plus importantes
-
-1. La complexité n'est pas la crédibilité.
-2. L'évaluation compte davantage que la génération.
-3. La capacité n'est pas la fiabilité.
-4. L'état doit être explicite.
-5. Les conditions d'arrêt font partie de la spécification.
-6. La revue multi-modèles doit être opérationnalisée.
-7. La provenance compte autant que l'arithmétique.
-8. Une donnée manquante peut être la bonne réponse.
-9. La simplification peut renforcer la rigueur.
-10. Le jugement humain reste architectural.
-
-## 17. Ce que cela démontre pour un recruteur LLM Engineer
-
-FranceScope démontre une expérience pratique de :
-
-- context engineering, avec scope, état et décisions gelées ;
-- contraintes d'agents et discipline d'utilisation des outils ;
-- efficacité des tokens par exploration ciblée ;
-- gestion d'état sur un projet long ;
-- design d'évaluation et contrôle des régressions ;
-- revue adversariale multi-modèles ;
-- provenance et alignement des définitions ;
-- architecture human-in-the-loop ;
-- arbitrage de produit et de périmètre.
-
-Chaque compétence correspond à un mécanisme concret : la règle anti-loop, le
-gate de provenance, le gel des valeurs, les manifests, la revue des pentes ou
-le choix de `NA`. Il ne s'agit pas seulement de mots-clés, mais de contraintes
-qui ont modifié le fonctionnement du projet.
-
-## 18. Limites
-
-- Les contrôles ont été principalement implémentés par des instructions
-  disciplinées, des fichiers structurés, des scripts et des manifests, plutôt
-  que par une plateforme de production d'agents autonome.
-- La revue multi-modèles n'est pas une revue scientifique indépendante.
-- La prévision de long terme demeure très incertaine.
-- Les leçons sont issues de ce projet, même si plusieurs principes sont
-  généralisables.
-
-Ces limites renforcent la portée réelle de la démonstration : il s'agit d'un
-cas d'étude d'ingénierie et de pilotage, pas d'une preuve d'autonomie générale.
-
-## 19. Documentation connexe
-
-- [README recruteur](../README.md) ;
-- [évolution du projet](project_evolution.md) ;
-- [workflow LLM fiable](reliable_llm_workflows.md) ;
-- [cadre d'évaluation](evaluation_framework.md) ;
-- [méthodologie du benchmark institutionnel](institutional_benchmark_methodology.md) ;
-- [rapport technique](technical_report.md) — documentation en cours ;
-- [état final du projet](FINAL_PROJECT_STATE.md).
+| Complexite excessive | Reduction a trois cibles finales |
+| Coherence seulement locale | Revue temporelle et inter-variables |
+| Derive / perte d'etat | Fichiers autoritatifs et handoffs |
+| Boucles d'outils | Regles anti-loop explicites |
+| Suredition | Plus petit changement sur + stop conditions |
+| Mismatch definition / source | Controles de comparabilite obligatoires |
+| Mauvais horizon | Taxonomie de statuts et integrite d'horizon |
+| Fausse precision | Preference pour `NA` |
+| Index redondant | Suppression de l'abstraction |
+| Limites d'autonomie | Arbitrage humain architectural |
